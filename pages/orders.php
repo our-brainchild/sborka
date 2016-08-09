@@ -5,9 +5,6 @@
 ?>
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class="container">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#order" data-toggle="tab">Заказы</a></li>

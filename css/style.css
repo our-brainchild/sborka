@@ -131,7 +131,7 @@ tbody tr:hover{
 	background-color: #f2f2f2;
 	transition: all 0.3s ease-out;
 	float: left;
-	margin: 12px 12px 0 0;
+	margin: 0 12px 12px 0;
 	border: solid 1px #f2f2f2;
 	text-align: center;
 	list-style: none;
@@ -183,4 +183,7 @@ tbody tr:hover{
 }
 .head{
 	border-bottom: 1px solid #D3D3D3;
+}
+.my-style-list-group{
+	float: right;
 }

@@ -45,7 +45,7 @@
 
                   </tr>
 
-                  <tr class="highlight lgreen" id="row4742553">
+                  <tr class="success" id="row4742553">
     	               <td align="center"><input type="checkbox" name="message[]" value="4742553" id="message4742553">
                      </td>
                      <td>
@@ -64,7 +64,7 @@
                      <td align="center" nowrap=""> <a href="" class="actionmail" title="Удалить сообщение"><i class="fa fa-trash-o fa-2x"></i></a> </td>
                    </tr>
 
-                   <tr class="highlight lgreen" id="row4742553">
+                   <tr class="" id="row4742553">
      	               <td align="center"><input type="checkbox" name="message[]" value="4742553" id="message4742553">
                       </td>
                       <td>
