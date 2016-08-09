@@ -2,7 +2,7 @@
 $mysqli = false;
 function connectDB(){
   global $mysqli;
-  $mysqli = new mysqli("localhost","root","","asprint_sborka");
+  $mysqli = new mysqli("localhost","root","","sborka_asprint");
   $mysqli->query("SET NAMES 'utf8'");
 }
 function closeDB(){
