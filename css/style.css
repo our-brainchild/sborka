@@ -184,6 +184,16 @@ tbody tr:hover{
 .head{
 	border-bottom: 1px solid #D3D3D3;
 }
+<<<<<<< HEAD
 .my-style-list-group{
 	float: right;
 }
+=======
+.fs-22{
+	font-size: 2.2em;
+}
+/*.row>div>label{
+
+	max-width: inherit;	height: auto;
+}*/
+>>>>>>> 9a05ef0a621feb506f738e43c3119a9c704cc10b
