@@ -168,3 +168,9 @@ tbody tr:hover{
 .block_item a:hover{
 	text-decoration: none;
 }
+.dashed{
+	color:#2e4659;
+}
+.actionmail{
+	color:#2e4659;
+}

@@ -52,15 +52,6 @@ function showAllMassegeInChat(){
 
 }
 
-
-// function checkUser($login, $password){
-//   global $mysqli;
-//   $result_set=$mysqli->query(" SELECT * FROM `user` WHERE (`login` = '$login' OR `email_user` = '$login') AND `password_user` = '$password' ");
-//   if($result_set->num_rows > 0) return true;
-//   else return false;
-// }
-
-
 function checkUser($nick_name,$password){
     //Проверка является ли он юзером. Аутификация пользователя по факту.
     global $mysqli;
