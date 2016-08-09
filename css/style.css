@@ -168,9 +168,19 @@ tbody tr:hover{
 .block_item a:hover{
 	text-decoration: none;
 }
+
 .dashed{
 	color:#2e4659;
 }
 .actionmail{
 	color:#2e4659;
+}
+.block{
+	width: 100%;
+}
+#mainBlock{
+	position: relative;
+}
+.head{
+	border-bottom: 1px solid #D3D3D3;
 }
