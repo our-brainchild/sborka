@@ -87,6 +87,7 @@
         <center><h4 class="modal-title" id="myModalLabel">Введите ваши данные</h4></center>
       </div>
       <div class="modal-body">
+
         <form class="form-horizontal" role="form" method="POST" action="../block/auth.php">
           <?php
 						if($_SESSION["error_auth"]){
@@ -122,7 +123,8 @@
             <button  type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Отмена</button>
             </div>
           </div>
-          </form>
+        </form>
+
       </div>
     </div>
   </div>
@@ -143,7 +145,6 @@
 
             <?php
             if (!empty($_POST["button_reg"])) {
-                echo $_POST;
                 $email=htmlspecialchars($_POST["email"]);
                 $login=htmlspecialchars($_POST["login"]);
                 $name=htmlspecialchars($_POST["name"]);
@@ -161,8 +162,11 @@
                 if (!$success) $alert="Ошибка при регистрации пользователя!";
                   else $alert="Вы успешно зарегистрировались!";
                 include "block/alert.php";
+
+
             }
             ?>
+
             <div class="text-center" style="font-weight: 700;">
               <h4>Регистрационные данные</h4>
             </div>

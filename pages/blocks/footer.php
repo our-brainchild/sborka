@@ -17,6 +17,20 @@
 <!--//Main-Footer-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+//для главной менюшки
+$(document).ready(function(){
+  //$(".mynav li a[href*='#']").parents().addClass('active');
+  var loc = window.location.pathname;
+  var empty_callback = function(){ return false; };
+  $("#responsive-menu ul li a").each(function(index, item){
+    if (loc == $(item).attr("href")){
+      $(item).click(empty_callback);
+      $(item).addClass("active");
+    }
+  });
+});
+</script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../js/bootstrap.js"></script>
 </body>

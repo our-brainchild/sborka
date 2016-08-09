@@ -98,3 +98,73 @@ body{
 .color-text{
 	color: white;
 }
+
+
+/*thead > tr > th{
+  color: #5f5b5b;
+  background: url(/images/bgth.gif) repeat-x 0 50%;
+  border-top: 1px solid #d6d9e1;
+  border-bottom: 1px solid #d6d9e1;
+	border-right: 1px solid #d6d9e1;
+	border-left: 1px solid #d6d9e1;
+  text-align: center;
+  line-height: 14px;
+  vertical-align: middle;
+  padding: 5px;
+}
+tbody td {
+    border-left: 1px solid #d6d9e1;
+		border-right: 1px solid #d6d9e1;
+    border-bottom: 1px solid #d6d9e1;
+    padding: 5px;
+    font-size: 12px;
+}
+tbody .tdcenter{
+  text-align: center;
+}
+tbody tr:hover{
+    outline: 1px dashed #cd5047;
+    cursor: pointer;
+}*/
+
+.block_item{
+	background-color: #f2f2f2;
+	transition: all 0.3s ease-out;
+	float: left;
+	margin: 12px 12px 0 0;
+	border: solid 1px #f2f2f2;
+	text-align: center;
+	list-style: none;
+	padding: 0;
+	box-shadow: 3px 3px 1px lightgray;
+}
+.block_item img{
+	filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    -webkit-transition: all .6s ease;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter ….3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+		padding: 0;
+		margin: 0;
+}
+.block_item span {
+	display: block;
+	text-align: center;
+	height: 30px;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+}
+.block_item a{
+	text-decoration: none;
+	color: #333;
+	width: 133px;
+	height: 150px;
+	padding: 10px 13px;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+.block_item a:hover{
+	text-decoration: none;
+}

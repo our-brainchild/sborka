@@ -4,6 +4,7 @@
 	unset($_SESSION["login"]);
   unset($_SESSION["id"]);
   unset($_SESSION["password"]);
+	session_destroy();
 	header("Location: ../../");
 	exit;
 ?>
