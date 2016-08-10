@@ -1,6 +1,7 @@
 <?php
   require_once "start.php";
   require_once "blocks/mainmenu.php";
+  $client_TBD = getArrayClient($_SESSION["id"]);
   echo "<br><br><br>";
   echo "<br><br><br>";
 ?>
@@ -11,8 +12,8 @@
         <form class="">
           <div class="">
             <div class="">
-              <div class="">На вашем счету:
-                <span class="">0 руб.</span>
+              <div class=""><h4>На вашем счету:
+                <span class="dashed"><strong><?php  echo $client_TBD["score_client"];?> руб.</strong></span></h4>
               </div>
             </div>
             <div class="">
@@ -80,13 +81,6 @@
                   <br>
                 </div>
                 <div class="row">
-                  <style>
-                    .my{
-                      padding: 0;
-                      margin: 0;
-                    }
-                    /*Костыли костыли:))*/
-                  </style>
                   <div class="col-lg-12 my">
                      <div class="input-group">
                        <input type="text" class="form-control" placeholder="0 руб.">
@@ -105,11 +99,11 @@
         <div class="col-md-4">
           <form class="form">
             <div class="">
-              <div class="">Уведомить об оплате&nbsp;<span class="dashed"><i class="fa fa-certificate"></i></span>
+              <div class="head"><h4>Уведомить об оплате&nbsp;<span class="dashed"><i class="fa fa-certificate"></i></span></h4>
               </div>
               <div class="">
                 <div class="">
-                  <label class="">Способ оплаты
+                  <label>Способ оплаты
                   </label><br>
                   <select class="form-control">
                     <option value="">Не выбрано</option>
@@ -137,18 +131,6 @@
                   <textarea class="form-control"></textarea>
                 </div>
                 <div class="row">
-                  <style>
-                  .file {
-                      left: 2000px;
-                      right: 2000px;
-                      position: absolute;
-                      width: 0;
-                      height: 0;
-                      opacity: 0.01;
-
-                  }
-                  .ht{margin-left: 15px;}
-                  </style>
                   <div class="col-lg-8 col-md-8">
                     <button class="btn btn-primary" onclick="document.getElementById('file').click()">Загрузить копию квитанции</button>
                     <input type="file" class="file" id="file"/>
@@ -157,12 +139,10 @@
                     <button class="btn btn-primary btn-md" type="button"  name="Отправить">Отправить</button>
                   </div>
                 </div>
-
-
-
               </div>
             </div>
-            <div class=""><span class="dashed"><i class="fa fa-certificate"></i></span>&nbsp;Для подтверждения оплаты через РНКБ (пополнение карты), Сбербанк РФ и Qiwi прикрепите квитанцию, подтверждающую платёж
+            <div class=""><span class="dashed"><i class="fa fa-certificate"></i></span>&nbsp;<span class="fs-8">
+              Для подтверждения оплаты через РНКБ (пополнение карты), Сбербанк РФ и Qiwi прикрепите квитанцию, подтверждающую платёж.</span>
             </div>
           </form>
 

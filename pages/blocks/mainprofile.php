@@ -9,15 +9,15 @@
   global $user_TBD;
   $id = $_SESSION["id"];
   $result = $mysqli->query("SELECT * FROM user WHERE `id_user`='$id'");
-  $user_TBD = $result->fetch_assoc();
+  $user_TBD =$result -> fetch_assoc();
   $result = $mysqli->query("SELECT * FROM client WHERE `id_client`='$id'");
-  $client_TBD = $result->fetch_assoc();
+  $client_TBD = getArrayClient($_SESSION["id"]);
  ?>
 <div class="container">
   <div class="row">
     <h3>Добро пожаловать <?php echo $user_TBD["name_user"]." ".$user_TBD["lastname_user"]; ?> </h3>
     <h5><b>Ваш регистрационный номер <?php echo $_SESSION["id"]; ?></b></h5>
-    <h5>Баланс: </h5>
+    <h5>Баланс: <?php echo $client_TBD["score_client"];?></h5>
     <h5>Вы находитесь в группе:</h5>
     <h5>Размер вашей персональной скидки: </h5>
     <p></p>

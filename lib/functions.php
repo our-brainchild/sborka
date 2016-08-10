@@ -71,5 +71,9 @@ function updatePass($id,$oldpass,$pass){
   $success = $mysqli->query("UPDATE user SET `password_user`='$pass' WHERE `id_user`='$id' AND `password_user`='$oldpass'");
   return $success;
 }
-
+function getArrayClient($id){
+  global $mysqli;
+  $result_set = $mysqli -> query("SELECT * FROM `client` WHERE `id_client` = '$id'");
+  return $result_set -> fetch_assoc();
+}
 ?>

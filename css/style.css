@@ -183,11 +183,28 @@ tbody tr:hover{
 }
 .head{
 	border-bottom: 1px solid #D3D3D3;
+	margin-bottom:7px;
+}
+.my{
+	padding: 0;
+	margin: 0;
 }
 .my-style-list-group{
 	float: right;
 }
-
 .fs-22{
 	font-size: 2.2em;
 }
+.fs-8{
+	font-size: 11px;
+}
+.file {
+		left: 2000px;
+		right: 2000px;
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0.01;
+
+}
+.ht{margin-left: 15px;}
