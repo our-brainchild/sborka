@@ -77,17 +77,25 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div id="payButtons" class="col-md-4">
-                    <div class="">К оплате:</div>
-                    <div class="">
-                      <input type="text" class="" name="payment[value]" placeholder="0" value="">
-                    </div>
-                    <div class=""> руб.
-                    </div>
-                    <div class="">
-                      <button type="button" class="btn btn-primary btn-md" data-action="pay">Пополнить</button>
-                    </div>
-                  </div>
+                  <br>
+                </div>
+                <div class="row">
+                  <style>
+                    .my{
+                      padding: 0;
+                      margin: 0;
+                    }
+                    /*Костыли костыли:))*/
+                  </style>
+                  <div class="col-lg-12 my">
+                     <div class="input-group">
+                       <input type="text" class="form-control" placeholder="0 руб.">
+                       <span class="input-group-btn">
+                         <button class="btn btn-primary" type="button">Пополнить</button>
+                       </span>
+                     </div><!-- /input-group -->
+                   </div><!-- /.col-lg-6 -->
+                  </div><!-- /.row -->
                 </div>
               </div>
             </div>
@@ -95,9 +103,9 @@
         </div>
 
         <div class="col-md-4">
-          <form class="">
+          <form class="form">
             <div class="">
-              <div class="">Уведомить об оплате<span class="">*</span>
+              <div class="">Уведомить об оплате&nbsp;<span class="dashed"><i class="fa fa-certificate"></i></span>
               </div>
               <div class="">
                 <div class="">
@@ -129,36 +137,32 @@
                   <textarea class="form-control"></textarea>
                 </div>
                 <div class="row">
-                <style>
-                .file {
-                    top: 5px;
+                  <style>
+                  .file {
+                      left: 2000px;
+                      right: 2000px;
+                      position: absolute;
+                      width: 0;
+                      height: 0;
+                      opacity: 0.01;
 
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    opacity: 0.01;
-
-                }
-                .ht{margin-left: 15px;}
-                </style>
-                <div class="ht" data-type="receipt">
-                  <span class="">
-                    <i class=""></i> Загрузите копию квитанции
-                  </span>
-                  <div class="" style="width: 100%"></div>
-                </div>
-
-                <button class="btn btn-primary ht" onclick="document.getElementById('file').click()">Загрузить</button>
-                <input type="file" class="file" id="file"/>
-
+                  }
+                  .ht{margin-left: 15px;}
+                  </style>
+                  <div class="col-lg-8 col-md-8">
+                    <button class="btn btn-primary" onclick="document.getElementById('file').click()">Загрузить копию квитанции</button>
+                    <input type="file" class="file" id="file"/>
+                  </div>
+                  <div class="col-lg-4 col-md-4 text-right">
+                    <button class="btn btn-primary btn-md" type="button"  name="Отправить">Отправить</button>
+                  </div>
                 </div>
 
 
-                  <button class="btn btn-primary btn-md" type="button"  name="Отправить">Отправить</button>
-                <div class=""></div>
+
               </div>
             </div>
-            <div class=""> Для подтверждения оплаты через РНКБ (пополнение карты), Сбербанк РФ и Qiwi прикрепите квитанцию, подтверждающую платёж
+            <div class=""><span class="dashed"><i class="fa fa-certificate"></i></span>&nbsp;Для подтверждения оплаты через РНКБ (пополнение карты), Сбербанк РФ и Qiwi прикрепите квитанцию, подтверждающую платёж
             </div>
           </form>
 
