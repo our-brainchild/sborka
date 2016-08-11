@@ -1,7 +1,7 @@
 <?php
   require_once "start.php";
   if(checkUser($_SESSION["login"],$_SESSION["password"])==true){
-		header("Location: pages/orders.php");
+		header("Location: pages/order.php");
 		exit;
 	}
   require_once "block/connect.php";
