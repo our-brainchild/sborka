@@ -17,13 +17,9 @@
   <div class="row">
     <h3>Добро пожаловать <?php echo $user_TBD["name_user"]." ".$user_TBD["lastname_user"]; ?> </h3>
     <h5><b>Ваш регистрационный номер <?php echo $_SESSION["id"]; ?></b></h5>
-<<<<<<< HEAD
-    <h5>Баланс: <?php echo $client_TBD["score_client"]; ?> </h5>
-=======
-    <h5>Баланс: <?php echo $client_TBD["score_client"];?></h5>
->>>>>>> 93be15a265105b1eb775c9ada143a2d0768d65b1
+    <!-- <h5>Баланс: <?php echo $client_TBD["score_client"];?></h5>
     <h5>Вы находитесь в группе:</h5>
-    <h5>Размер вашей персональной скидки: </h5>
+    <h5>Размер вашей персональной скидки: </h5> -->
     <p></p>
     <p></p>
     <p></p>
@@ -32,10 +28,10 @@
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
         <li class="active"><a href="#profiledata" data-toggle="tab">Персональные данные</a></li>
-        <li><a href="#delivery" data-toggle="tab">Способы доставки</a></li>
-        <li><a href="#messages" data-toggle="tab">Настройка уведомлений</a></li>
+        <!-- <li><a href="#delivery" data-toggle="tab">Способы доставки</a></li>
+        <li><a href="#messages" data-toggle="tab">Настройка уведомлений</a></li> -->
         <li><a href="#pass" data-toggle="tab">Смена пароля</a></li>
-        <li><a href="#regdocument" data-toggle="tab">Регистрационные документы</a></li>
+        <!-- <li><a href="#regdocument" data-toggle="tab">Регистрационные документы</a></li> -->
       </ul>
 
       <!-- Tab panes -->
@@ -129,12 +125,12 @@
             </div>
 
           </form>
-
         </div>
-        <div class="tab-pane fade" id="delivery">...</div>
-        <div class="tab-pane fade" id="messages">
 
-          <div class="container">
+        <!-- <div class="tab-pane fade" id="delivery">...</div> -->
+        <!-- <div class="tab-pane fade" id="messages"> -->
+
+          <!-- <div class="container">
             <div class="box" style="display: block;">
   		        <div id="notify">
                 <form action="?id=1" method="post" enctype="multipart/form-data" name="notifications" id="notifications">
@@ -159,11 +155,11 @@
                     </tbody></table>
                 </form><span class="info">Все уведомления обязательно дублируются через систему сообщений.</span></div>
   	       </div>
-         </div>
-        </div>
+         </div> -->
+
 
         <div class="tab-pane fade" id="pass">
-
+          <div class="container">
           <form method="post" class="form-horizontal" role="form" action="/function/updatePass.php">
             <?php
             if($_SESSION["error_update_pass"]){
@@ -186,9 +182,10 @@
             </div>
             <input type="submit" name="btn_pass" class="btn btn-default" value="Изменить">
           </form>
-
+          </div>
+          </div>
         </div>
-        <div class="tab-pane fade" id="regdocument">...</div>
+        <!-- <div class="tab-pane fade" id="regdocument">...</div> -->
       </div>
 
   </div>

@@ -208,3 +208,12 @@ tbody tr:hover{
 
 }
 .ht{margin-left: 15px;}
+.dropdown1{
+	border: white;
+	border-color: white !important;
+	border-radius: 2px !important;
+	max-height: 30px;
+	width: 40px;
+	margin: 0 !important;
+	padding: 0 !important;
+}
