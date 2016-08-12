@@ -39,8 +39,10 @@ function showAllItem(){
 
 }
 
-function showItem(){
+function selectItem(){
   global $mysqli;
+  $result = $mysqli->query("SELECT * FROM `item`");
+  return resultSetToArray($result);
 
 }
 
@@ -51,6 +53,14 @@ function showAllChat(){
 function showAllMassegeInChat(){
 
 }
+
+function resultSetToArray($result_set){
+    //Вспомогательная функция для возвпращении массива нумерованного с записями.
+    $array = array();
+    while (($row = $result_set->fetch_assoc()) != false)
+      $array[]=$row;
+    return $array;
+  }
 
 function checkUser($nick_name,$password){
     //Проверка является ли он юзером. Аутификация пользователя по факту.

@@ -17,11 +17,7 @@
   <div class="row">
     <h3>Добро пожаловать <?php echo $user_TBD["name_user"]." ".$user_TBD["lastname_user"]; ?> </h3>
     <h5><b>Ваш регистрационный номер <?php echo $_SESSION["id"]; ?></b></h5>
-<<<<<<< HEAD
     <h5>Баланс: <?php echo $client_TBD["score_client"]; ?> </h5>
-=======
-    <h5>Баланс: <?php echo $client_TBD["score_client"];?></h5>
->>>>>>> 93be15a265105b1eb775c9ada143a2d0768d65b1
     <h5>Вы находитесь в группе:</h5>
     <h5>Размер вашей персональной скидки: </h5>
     <p></p>
