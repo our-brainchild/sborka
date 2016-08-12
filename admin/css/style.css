@@ -217,3 +217,9 @@ tbody tr:hover{
 	margin: 0 !important;
 	padding: 0 !important;
 }
+.tablesrok>tbody>tr>td{
+	height: 60px;
+	width: auto;
+	text-align: center;
+	border: 1px solid lightgrey;
+}
