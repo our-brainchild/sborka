@@ -7,7 +7,7 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
   <div class="row">
     <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></button>
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-lg" style="width: 95% !important;  max-width:1800px !important; min-width 600px !important;">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -63,9 +63,6 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                     <br>
                     <b>Информирование.</b><br>
                     Вы всегда получаете SMS или e-mail уведомления согласно - статуса заказа, состояния баланса, новых предложений и возможностей.
-                    <br>
-                    <br>
-                    <br>
                   </div>
                   <div class="tab-pane" id="order-status">
                     <h1>Статус заказа</h1>
@@ -95,8 +92,6 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                     Активный для пользователей с аккредитацией ДИЛЕР. См: «Аккредитация и скидки»
                     <br><br>
                     <i class="fa fa-truck" aria-hidden="true" title="Отгружен/отправлен"></i>&nbsp;&nbsp;Отгружен/отправлен - заказ отгружен/доставлен/отправлен. <br>
-
-                    <br><br><br>
                   </div>
                   <div class="tab-pane" id="info">
                     <h1>Информирование</h1>
@@ -133,7 +128,7 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                      <b>Скидка индивидуальна.</b><br>
                      <br>
                     <b> НАКОПИТЕЛЬ</b> (не менее 10 заказов в день) - печать без оплаты, отправка продукции без оплаты, отсрочка платежа до 10 дней. <br>
-                    <b> Скидка индивидуальна.</b><br>
+                    <b> Скидка индивидуальна.</b>
                   </div>
                   <div class="tab-pane" id="reviews">
                     <h1><a href="http://sborka.ua/index.php?id=2">ТУТ НУЖНО САМОМУ СДЕЛАТЬ КАК НА СТАРОЙ СБОРКИ</a></h1>
@@ -154,7 +149,7 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                      Перерасчет/компенсация делается согласно стоимости работ в тираже.<br>
                      <br>
                      <b>В случае не соответствия тиража:</b><br>
-                     Перерасчет/компенсация делается согласно стоимости экземпляра в тираже. <br>
+                     Перерасчет/компенсация делается согласно стоимости экземпляра в тираже.
                   </div>
                   <div class="tab-pane" id="contacts">
                     <h1>Контакты</h1>
@@ -206,9 +201,9 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                        <br> <br>
 
                        <b>Бухгалтерия:</b> <br>
-                       Понедельник - Пятница с 9:00 до 19:00 <br>
-                       <br><br><br><br>
+                       Понедельник - Пятница с 9:00 до 19:00
                   </div>
+                  <br>
                 </div>
               </div>
             </div>
