@@ -5,8 +5,8 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
 ?>
 <div class="container">
   <div class="row">
-    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
-    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></button>
+
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" style="width: 95% !important;" ><!--ширину либо так либо 1245px-->
         <div class="modal-content">
@@ -152,13 +152,13 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
                   </div>
                 </div>
               </div>
-              <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border-left:1px solid light;">
+              <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="border-left:1px solid lightgray;">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#ofset-print" data-toggle="tab" aria-expanded="true">Офсетная печать</a></li>
                   <li><a href="#digit-print" data-toggle="tab" aria-expanded="true">Цифровая печать</a></li>
                   <li><a href="#wide-format" data-toggle="tab" aria-expanded="true">Широкоформат</a></li>
-                  <li><a href="#UF-print"  data-toggle="tab" aria-expanded="true">УФ печать</a></li>
-                  <li><a href="#canvas-and-art" data-toggle="tab" aria-expanded="true">Холсты и картины</a></li>
+                  <!-- <li><a href="#UF-print"  data-toggle="tab" aria-expanded="true">УФ печать</a></li> нужно только подключить
+                  <li><a href="#canvas-and-art" data-toggle="tab" aria-expanded="true">Холсты и картины</a></li> -->
                   <li><a href="#plastic-cards" data-toggle="tab" aria-expanded="true">Пластиковые карты</a></li>
                 </ul>
                 <div class="tab-content">
@@ -1868,7 +1868,7 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 
