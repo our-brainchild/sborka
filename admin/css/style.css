@@ -223,3 +223,10 @@ tbody tr:hover{
 	text-align: center;
 	border: 1px solid lightgrey;
 }
+.sbut{
+
+	font-size: 11px;
+}
+.sbut>a{
+	padding-left: 50px;
+}
