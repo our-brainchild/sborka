@@ -220,13 +220,16 @@ tbody tr:hover{
 .tablesrok>tbody>tr>td{
 	height: 60px;
 	width: auto;
-	text-align: center;
+	text-align: left;
+	padding-left: 10px; 
 	border: 1px solid lightgrey;
 }
 .sbut{
-
 	font-size: 11px;
 }
 .sbut>a{
 	padding-left: 50px;
+}
+.new{
+	border-bottom: 7px solid white;
 }
