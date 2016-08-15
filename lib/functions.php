@@ -34,9 +34,39 @@ function popUser(){
   return $success;
 }
 
-function showAllItem(){
+function showAllItem(/*$id_item, $id_print, $id_size*/){
   global $mysqli;
-
+  $result = $mysqli->query("SELECT `name_item`, `name_item_type`, `name_size`, `height_size`, `width_size`, `type_paper`,`name_paper_texture`,`name_paper_weight`, `name_print`
+FROM
+  `item_type`
+  INNER JOIN
+  `item`
+    ON `item_type`.id_item_item_type = `item`.`id_item`
+  JOIN
+   `size`
+   	ON 	`item_type`.`id_size_type` = `size`.`id_size`
+  JOIN
+  	`type_paper`
+    ON `item_type`.`id_paper_type` = `type_paper`.`id_type_paper`
+  JOIN
+  	`print`
+    ON `item_type`.`id_print_type` = `print`.`id_print`
+  WHERE (`item_type`.`id_item_type` = 1 AND `item_type`.`id_print_type`=1) AND `item_type`.`id_size_type`= 1");
+  return $result->fetch_assoc();
+}
+function selectAllPricesFromItem($id_item_type){
+  global $mysqli;
+  $result = $mysqli->query("SELECT `value_cost`, `size_circulation`, `id_item_type_prices`
+FROM
+  `prices`
+  INNER JOIN
+  `cost`
+    ON `prices`.`id_cost` = `cost`.`id_cost`
+  JOIN
+   `circulation`
+   	ON 	`prices`.`id_circulation_prices` = `circulation`.`id_circulation`
+  WHERE `prices`.`id_item_type_prices`='$id_item_type'");
+  return resultSetToArray($result);
 }
 
 function selectItem(){
@@ -44,6 +74,12 @@ function selectItem(){
   $result = $mysqli->query("SELECT * FROM `item`");
   return resultSetToArray($result);
 
+}
+
+function selectAllPrint(){
+  global $mysqli;
+  $result = $mysqli->query("SELECT * FROM `print`");
+  return resultSetToArray($result);
 }
 
 function showAllChat(){

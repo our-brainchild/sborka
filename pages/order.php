@@ -7,7 +7,18 @@
   <div class="row">
     <div class="col-lg-3 col-md-3">
       <div class="list-group">
-        <a href="#" class="list-group-item active">
+        <?php
+        $T_B_Print = selectAllPrint();
+        for($i=0; $i<count($T_B_Print); $i++){
+          echo "<a href='#' class='list-group-item'>
+            <div class='my-style-list-group'>
+                <i class='fa fa-angle-right fa-3x'></i>
+            </div>
+              <h4 class='list-group-item-heading'>".$T_B_Print[$i]['name_print']."</h4>
+              <p class='list-group-item-text'>5 дней</p>
+        </a>" ;
+        }?>
+        <!-- <a href="#" class="list-group-item active">
           <div class="my-style-list-group">
               <i class="fa fa-angle-right fa-3x"></i>
           </div>
@@ -34,7 +45,7 @@
           </div>
           <h4 class="list-group-item-heading">Широкоформатная печать</h4>
           <p class="list-group-item-text">Отдельный тираж, 3-12 дней</p>
-        </a>
+        </a> -->
       </div>
     </div>
 <?php $showItem = selectItem(); ?>
