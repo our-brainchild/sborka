@@ -5,7 +5,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title" id="myModalLabel"><strong>Доставка</strong></h3>
+            <h3 class="modal-title" id="myModalLabel"><strong>Печать</strong></h3>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
@@ -350,8 +350,8 @@
                   <li class="active"><a href="#of-print" data-toggle="tab" aria-expanded="true">Офсетная печать</a></li>
                   <li><a href="#dig-print" data-toggle="tab" aria-expanded="true">Цифровая печать</a></li>
                   <li><a href="#w-format" data-toggle="tab" aria-expanded="true">Широкоформат</a></li>
-                  <li><a href="#uf"  data-toggle="tab" aria-expanded="true">УФ печать</a></li>
-                  <li><a href="#canv-art" data-toggle="tab" aria-expanded="true">Холсты и картины</a></li>
+                  <!-- <li><a href="#uf"  data-toggle="tab" aria-expanded="true">УФ печать</a></li>
+                  <li><a href="#canv-art" data-toggle="tab" aria-expanded="true">Холсты и картины</a></li> -->
                   <li><a href="#plast-card" data-toggle="tab" aria-expanded="true">Пластиковые карты</a></li>
                 </ul>
                 <div class="tab-content active">
