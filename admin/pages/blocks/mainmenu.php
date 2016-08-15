@@ -41,6 +41,7 @@
             <li><a class="btn btn-default navbar-btn" href="../pages/modalWindow3.php">Модальные<br>oкна3</a></li>
             <li><a class="btn btn-default navbar-btn" href="../pages/modalWindow4.php">Модальные<br>oкна4</a></li>
             <li><a class="btn btn-default navbar-btn" href="../pages/modalWindow5.php">Модальные<br>oкна5</a></li>
+            <li><a class="btn btn-default navbar-btn" href="../pages/modal.php">Модалка</a></li>
             <li><a class="btn btn-default navbar-btn" href="blocks/logout.php"><i class="fa fa-lg fa-sign-out"></i><br>Выйти</a></li>
           </ul>
         </div>

@@ -1,12 +1,6 @@
-<?php
-require_once "start.php";
-require_once "blocks/mainmenu.php";
-echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
-?>
-<div class="container">
+<div class="container" style="color: black !important;">
   <div class="row">
-    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></button>
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-2">
       <div class="modal-dialog modal-lg" style="width: 95% !important;  max-width:1800px !important; min-width 600px !important;">
         <div class="modal-content">
           <div class="modal-header">
@@ -213,8 +207,3 @@ echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
     </div>
   </div>
 </div>
-<?php
-echo "<br><br><br><br><br><br><br><br><br>";
-require_once "blocks/footer.php";
-require_once "stop.php";
- ?>
