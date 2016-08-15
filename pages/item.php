@@ -8,36 +8,25 @@ $prices_result = selectAllPricesFromItem($id);
 ?>
 <div class="container">
   <div class="row">
+    <ol class="breadcrumb">
+      <li><a href="../">Заказать</a></li>
+      <li class="active"> <?php echo $result['name_item']; ?></li>
+    </ol>
+  </div>
+  <div class="row">
     <div class="col-lg-3 col-md-3">
       <div class="list-group">
-        <a href="#" class="list-group-item active">
-          <div class="my-style-list-group">
-              <i class="fa fa-angle-right fa-3x"></i>
-          </div>
-              <h4 class="list-group-item-heading">Офсетовая печать</h4>
-              <p class="list-group-item-text">5 дней</p>
-        </a>
-        <a href="#" class="list-group-item">
-          <div class="my-style-list-group">
-              <i class="fa fa-angle-right fa-3x"></i>
-          </div>
-          <h4 class="list-group-item-heading">Цифровая печать</h4>
-          <p class="list-group-item-text">1 день</p>
-        </a>
-        <a href="#" class="list-group-item">
-          <div class="my-style-list-group">
-              <i class="fa fa-angle-right fa-3x"></i>
-          </div>
-          <h4 class="list-group-item-heading">Пластиковые карты</h4>
-          <p class="list-group-item-text">3-7 дней</p>
-        </a>
-        <a href="#" class="list-group-item">
-          <div class="my-style-list-group">
-              <i class="fa fa-angle-right fa-3x"></i>
-          </div>
-          <h4 class="list-group-item-heading">Широкоформатная печать</h4>
-          <p class="list-group-item-text">Отдельный тираж, 3-12 дней</p>
-        </a>
+        <?php
+        $T_B_Print = selectAllPrint();
+        for($i=0; $i<count($T_B_Print); $i++){
+          echo "<a href='#' class='list-group-item'>
+            <div class='my-style-list-group'>
+                <i class='fa fa-angle-right fa-3x'></i>
+            </div>
+              <h4 class='list-group-item-heading'>".$T_B_Print[$i]['name_print']."</h4>
+              <p class='list-group-item-text'>5 дней</p>
+        </a>" ;
+        } ?>
       </div>
     </div>
       <div class="col-lg-9 col-md-9">
@@ -50,10 +39,10 @@ $prices_result = selectAllPricesFromItem($id);
                       <div>
                         <div>
                           <div>
-                            <span>101 мм</span> / 99 мм
+                            <span><?php echo $result['width_size']; ?></span> / 99 мм
                           </div>
                           <div>
-                            <span>212 мм</span> / 210 мм
+                            <span><?php echo $result['height_size']; ?></span> / 210 мм
                           </div>
                         </div>
                       </div>
@@ -72,13 +61,13 @@ $prices_result = selectAllPricesFromItem($id);
                     <span class="c-orange">4 мм</span> толщиной
                   </div>
                   <div>
-                    <span> Скачать макет "Евро" </span><br>
-                    <div>
+                    <span> Скачать макет "<?php echo $result['name_item'];?>" </span><br>
+                    <!-- <div>
                       <a> Требования к макетам </a>
-                    </div>
-                    <div>
+                    </div> -->
+                    <!-- <div>
                       <a> Подготовка макета </a>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
             </div>
@@ -89,6 +78,7 @@ $prices_result = selectAllPricesFromItem($id);
               </div>
             </div>
             <div class="row">
+              <div><?php echo $result['name_item_type']?></div>
               <table>
                 <tbody>
                   <tr>
@@ -110,8 +100,8 @@ $prices_result = selectAllPricesFromItem($id);
                 </tbody>
               </table>
             </div>
-            <div class="row">
-              <div> <!-- <span class="name">ЭКОНОМ </span>--> Евро (210x99) Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия. </div>
+            <!-- <div class="row">
+              <div>  Евро (210x99) Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия. </div>
               <table>
                 <tbody>
                   <tr>
@@ -147,7 +137,7 @@ $prices_result = selectAllPricesFromItem($id);
                 </tbody>
               </table>
               <div></div>
-              <div> <!-- <span class="name">ЭКОНОМ </span>--> Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. Без покрытия. </div>
+              <div>  Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. Без покрытия. </div>
               <table>
                 <tbody>
                   <tr>
@@ -181,7 +171,7 @@ $prices_result = selectAllPricesFromItem($id);
                 </tbody>
               </table>
               <div></div>
-              <div> <!-- <span class="name">ЭКОНОМ </span>--> Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. лицо Глянец. </div>
+              <div>  Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. лицо Глянец. </div>
               <table>
                 <tbody>
                   <tr>
@@ -216,7 +206,7 @@ $prices_result = selectAllPricesFromItem($id);
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </div> -->
 
     </div>
   </div>
