@@ -34,9 +34,9 @@ function popUser(){
   return $success;
 }
 
-function showAllItem(/*$id_item, $id_print, $id_size*/){
+function showAllItem($id_item, $id_print){
   global $mysqli;
-  $result = $mysqli->query("SELECT `name_item`, `name_item_type`, `name_size`, `height_size`, `width_size`, `type_paper`,`name_paper_texture`,`name_paper_weight`, `name_print`
+  $result = $mysqli->query("SELECT `name_item`, `name_item_type`, `name_size`, `height_size`, `width_size`, `type_paper`,`name_paper_texture`,`name_paper_weight`, `name_print`, `id_item_type`
 FROM
   `item_type`
   INNER JOIN
@@ -51,8 +51,8 @@ FROM
   JOIN
   	`print`
     ON `item_type`.`id_print_type` = `print`.`id_print`
-  WHERE (`item_type`.`id_item_type` = 1 AND `item_type`.`id_print_type`=1) AND `item_type`.`id_size_type`= 1");
-  return $result->fetch_assoc();
+  WHERE `item_type`.`id_item_item_type` = '$id_item' AND `item_type`.`id_print_type`='$id_print' ");
+  return resultSetToArray($result);
 }
 function selectAllPricesFromItem($id_item_type){
   global $mysqli;
@@ -71,7 +71,14 @@ FROM
 
 function selectItem(){
   global $mysqli;
-  $result = $mysqli->query("SELECT * FROM `item`");
+  // $result = $mysqli->query("SELECT * FROM `item`");
+  $result = $mysqli->query("SELECT DISTINCT `name_item`, `img_item`, `id_item`
+FROM
+  `item_type`
+   JOIN
+  `item`
+    ON `item_type`.id_item_item_type = `item`.`id_item`
+ WHERE `item_type`.`id_print_type`='1' ");
   return resultSetToArray($result);
 
 }

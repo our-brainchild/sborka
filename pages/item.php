@@ -2,15 +2,17 @@
 require_once "start.php";
 require_once "blocks/mainmenu.php";
 echo "<br><br><br><br><br><br>";
-$id = $_GET['id_item'];
-$result = showAllItem(/*1, 1, 1*/);
-$prices_result = selectAllPricesFromItem($id);
+$id_item = $_GET['id_item'];
+$id_print = $_GET['id_print'];
+$T_B_Item_Type = showAllItem($id_item, $id_print);
+//var_dump($result); die();
 ?>
 <div class="container">
   <div class="row">
     <ol class="breadcrumb">
       <li><a href="../">Заказать</a></li>
-      <li class="active"> <?php echo $result['name_item']; ?></li>
+      <li class="active"><?php echo $T_B_Item_Type[0]['name_print']?></li>
+      <li class="active"> <?php echo $T_B_Item_Type[0]['name_item']; ?></li>
     </ol>
   </div>
   <div class="row">
@@ -32,17 +34,19 @@ $prices_result = selectAllPricesFromItem($id);
       <div class="col-lg-9 col-md-9">
 
            <div class="row">
-             <h1> Прайс на печать: <?php echo $result['name_item']; ?> </h1>
+             <h1> Прайс на печать: <?php echo $T_B_Item_Type[0]['name_item']; ?> </h1>
+             <hr/>
                 <div class="col-lg-6 col-md-6">
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <span><?php echo $result['width_size']; ?></span> / 99 мм
+                  <div class="row">
+                    <div class="col-lg-12 col-ms-12">
+                      <div style="">
+                        <div style="width: 293px;height: 207.172px;">
+                          <img style="max-height:100%; max-whidth:100%;" src="/images/euro-booklet.png">
+                          <div class="height size">
+                            <span class="dashed"><?php echo $T_B_Item_Type[0]['width_size']+2; echo "</span> / ".$T_B_Item_Type[0]['width_size']; ?>
                           </div>
-                          <div>
-                            <span><?php echo $result['height_size']; ?></span> / 210 мм
+                          <div class="size width">
+                            <span class="dashed"><?php echo $T_B_Item_Type[0]['height_size']+2; echo "</span> / ".$T_B_Item_Type[0]['height_size']; ?>
                           </div>
                         </div>
                       </div>
@@ -51,55 +55,38 @@ $prices_result = selectAllPricesFromItem($id);
                 </div>
                 <div class="col-lg-6 col-md-6">
                   <div>Дообрезной формат:</div>
-                  <div>поля <span>+1 мм</span> с каждой стороны </div>
+                  <div>поля <span class="dashed"><b>+1 мм</b></span> с каждой стороны </div>
                   <div>Значимые элементы:</div>
-                  <div class="c-8d-grey">отступ по
-                    <span class="c-orange">3 мм</span> от края макета
+                  <div class="text-gray">отступ по
+                    <span class="dashed"><b>3 мм</b></span> от края макета
                   </div>
                   <div>Элемент дизайна рамка:</div>
                   <div>не менее
-                    <span class="c-orange">4 мм</span> толщиной
+                    <span class="dashed"><b>4 мм</b></span> толщиной
                   </div>
                   <div>
-                    <span> Скачать макет "<?php echo $result['name_item'];?>" </span><br>
-                    <!-- <div>
-                      <a> Требования к макетам </a>
-                    </div> -->
-                    <!-- <div>
-                      <a> Подготовка макета </a>
-                    </div> -->
+                    <a download href="blocs/calculator.php" class="dashed bord_text bold-text"> Скачать макет "<?php echo $T_B_Item_Type[0]['name_item'];?>" </a><br>
+                    <div>
+                      <a href="#" data-toggle="modal" data-target="#modal-1" class="dashed bord_text bold-text"> Требования к макетам </a>
+                    </div>
+                     <div>
+                      <a href="#" data-toggle="modal" data-target="#modal-1" class="dashed bord_text bold-text"> Подготовка макета </a>
+                    </div>
                   </div>
                 </div>
             </div>
-            <div class="row"> Рекомендуем загружать макеты в формате <b>TIFF</b> в режиме <b>CMYK</b> без встроенного цветового профиля </div>
+            <br/>
+            <div class="row dashed" style="padding-left:12px; font-weight:bold;"> Рекомендуем загружать макеты в формате <b>TIFF</b> в режиме <b>CMYK</b> без встроенного цветового профиля</div>
+            <br/>
             <div class="row">
-              <div>
-                <div> Активный прайс-лист. Для оформления заказа кликните цену. </div>
-              </div>
+              <div style="background-color: #2e4659; padding: 8px 0 8px 10px; font-size:16px; color: white;"> <i class="fa fa-check fa-lg"></i> Активный прайс-лист. Для оформления заказа кликните цену. </div>
             </div>
-            <div class="row">
-              <div><?php echo $result['name_item_type']?></div>
-              <table>
-                <tbody>
-                  <tr>
-                    <th> Тираж </th>
-                  <?php
-                    for($i=0; $i<count($prices_result); $i++){
-                      echo "<th>&nbsp;".$prices_result[$i]['size_circulation']."&nbsp;</th>";
-                    }
-                  ?>
-                </tr>
-                <tr>
-                  <td>Печать за 3-5 дней (руб) </td>
-                <?php
-                  for($i=0; $i<count($prices_result); $i++){
-                    echo "<td> <a>&nbsp;".$prices_result[$i]['value_cost']."&nbsp;</a> </th>";
-                  }
-                ?>
-              </tr>
-                </tbody>
-              </table>
-            </div>
+            <?php for($i = 0; $i < count($T_B_Item_Type); $i++){
+              $prices_result = selectAllPricesFromItem($T_B_Item_Type[$i]['id_item_type']);
+              include "blocks/tableItem.php";
+            }
+            ?>
+
             <!-- <div class="row">
               <div>  Евро (210x99) Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия. </div>
               <table>

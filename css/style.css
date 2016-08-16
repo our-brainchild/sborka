@@ -172,6 +172,12 @@ tbody tr:hover{
 .dashed{
 	color:#2e4659;
 }
+.bord_text{
+	text-decoration: underline;
+}
+.bold-text{
+	font-weight: bold;
+}
 .actionmail{
 	color:#2e4659;
 }
@@ -248,4 +254,26 @@ tbody tr:hover{
   color: #666;
   display: inline-block;
 	padding: 3px 3px 3px 23px;
+}
+
+
+.size.height {
+    left: -62px;
+    text-align: center;
+    top: 45%;
+    transform: rotate(-90deg);
+    width: 140px;
+    white-space: nowrap;
+}
+.size {
+    color: #8d8d8d;
+    font-weight: bold;
+    position: absolute;
+}
+.size.width {
+    bottom: -12px;
+		left:-65px;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
 }
