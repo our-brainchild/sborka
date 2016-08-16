@@ -69,8 +69,7 @@
               <th align="center">
                 Рассчет печати пленки:
                 <br>
-                
-               </th>
+              </th>
              </tr>
              <tr>
                <td align="center">
