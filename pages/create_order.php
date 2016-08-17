@@ -15,20 +15,20 @@
         <form class="form" method="post">
 
 
-        <div class="row">
-        <div class="col-lg-3">
+        <div class="row pt">
+        <div class="col-lg-3 ">
           <h4 class="ht">Название вашего заказа</h4>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 ">
           <input type="text" class="form-control" placeholder="ТуТ" style="max-width: 95%;">
           <br>
         </div>
         </div>
-        <div class="row">
-        <div class="col-lg-3">
+        <div class="row pt">
+        <div class="col-lg-3 ">
           <h4 class="ht">Красочность печати</h4>
         </div>
-        <div  class="col-lg-9">
+        <div  class="col-lg-9 ">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
               <input type="radio" name="options" id="option1"> Двусторонняя 4+4
@@ -40,11 +40,11 @@
           <br>
         </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row pt">
+          <div class="col-lg-3 ">
             <h4 class="ht">Загрузите изображение</h4>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 ">
             <!-- 0<form role="form" style="padding-top: 5px;"> -->
               <p style="padding-top: 10px;">Перед загрузкой ознакомьтесь с <a href="#" data-toggle="modal" data-target="#modal-1">требованиями к макетам</a></p>
               <button class="btn btn-primary" onclick="document.getElementById('file1').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
@@ -57,11 +57,11 @@
             <!-- </form> -->
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row pt">
+          <div class="col-lg-3 ">
             <h4 class="ht">Послепечатные работы</h4>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 ">
             <table cellspacing>
               <tr>
                 <td>
@@ -171,17 +171,17 @@
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row pt">
+          <div class="col-lg-3 ">
             <h4 class="ht">Превью макета</h4>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 ">
             <button class="btn btn-primary" onclick="document.getElementById('file3').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
             <input type="file" class="file" id="file3"/>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row pt">
+          <div class="col-lg-3 ">
             <h4 class="ht">Способ доставки</h4>
           </div>
           <div class="col-lg-9">
@@ -209,13 +209,13 @@
                 Рейсовый автобус
               </label>
             </div>
-            <div id="deliveryForm" class="col-1-1 pt18">
+            <div id="deliveryForm" class="col-1-1 18">
               <div id="deliveryForm_2">
                 <div class="form-inline">
                   <input type="text" class="form-control" name="delivery[userName]" placeholder="Имя Фамилия" value="Иван" >
                   <input type="text" class="form-control ht" name="delivery[phone]" placeholder="Телефон" value="+7 978 036 72 39">
                 </div>
-                <div class="col-1-3 pt14 pr-s">
+                <div class="col-1-3 14 pr-s">
                   <select class="form-control" style="max-width: 280px;" >
                     <option value="Алушта">Алушта</option>
                     <option value="Армянск">Армянск</option>
@@ -243,34 +243,34 @@
                     <option value="Ялта">Ялта</option>
                   </select>
                 </div>
-                <div class="col-2-3 pt14">
+                <div class="col-2-3 14">
                   <select class="form-control" style="max-width: 280px;">
                     <option value="ул. Ленина 116-г (Отделение №1)">ул. Ленина 116-г (Отделение №1)</option>
                   </select>
                 </div>
-                <div class="col-1-1 pt14">
-                    <textarea class="form-control" style="max-width: 95%;" name="delivery[description]" placeholder="Дополнительная информация"></textarea>
+                <div class="col-1-1 14">
+                    <textarea class="form-control" style="max-width: 95%;" name="delivery[descriion]" placeholder="Дополнительная информация"></textarea>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row" style="margin-bottom: 40px;">
-          <div class="col-lg-3">
+        <div class="row pt" style="margin-bottom: 40px;">
+          <div class="col-lg-3 ">
             <h4 class="ht">Комментарии к заказу</h4>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 ">
             <textarea class="form-control" rows="3" style="max-width: 95%;"></textarea>
           </div>
         </div>
-        <div class="row" style="padding-bottom: 20px;">
-          <div class="col-lg-3">
+        <div class="row pt" style="padding-bottom: 20px;">
+          <div class="col-lg-3 ">
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-9 ">
             <p>Вес партии: 2.70 кг.</p>
             <p>Размер посылки: 99х210х90 мм.</p>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 ">
                 <span style="font-size: 22px;"><b>Итого: 90000000000 руб.</b></span>
               </div>
               <div class="col-md-6">
@@ -279,7 +279,7 @@
             </div>
           </div>
         </div>
-          </form>
+        </form>
       </div>
     </div>
   </div>
