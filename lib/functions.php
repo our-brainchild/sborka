@@ -69,7 +69,7 @@ FROM
   return resultSetToArray($result);
 }
 
-function selectItem(){
+function selectItem($id_print_type){
   global $mysqli;
   // $result = $mysqli->query("SELECT * FROM `item`");
   $result = $mysqli->query("SELECT DISTINCT `name_item`, `img_item`, `id_item`
@@ -78,7 +78,7 @@ FROM
    JOIN
   `item`
     ON `item_type`.id_item_item_type = `item`.`id_item`
- WHERE `item_type`.`id_print_type`='1' ");
+ WHERE `item_type`.`id_print_type`='$id_print_type' ");
   return resultSetToArray($result);
 
 }

@@ -7,7 +7,7 @@ $id_print = $_GET['id_print'];
 $T_B_Item_Type = showAllItem($id_item, $id_print);
 //var_dump($result); die();
 ?>
-<div class="container">
+<div class="container imghelpmaterial">
   <div class="row">
     <ol class="breadcrumb">
       <li><a href="../">Заказать</a></li>
@@ -16,7 +16,7 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
     </ol>
   </div>
   <div class="row">
-    <div class="col-lg-3 col-md-3">
+    <!-- <div class="col-lg-3 col-md-3">
       <div class="list-group">
         <?php
         $T_B_Print = selectAllPrint();
@@ -30,8 +30,8 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
         </a>" ;
         } ?>
       </div>
-    </div>
-      <div class="col-lg-9 col-md-9">
+    </div> -->
+      <div class="col-lg-12 col-md-12">
 
            <div class="row">
              <h1> Прайс на печать: <?php echo $T_B_Item_Type[0]['name_item']; ?> </h1>
@@ -79,7 +79,7 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
             <div class="row dashed" style="padding-left:12px; font-weight:bold;"> Рекомендуем загружать макеты в формате <b>TIFF</b> в режиме <b>CMYK</b> без встроенного цветового профиля</div>
             <br/>
             <div class="row">
-              <div style="background-color: #2e4659; padding: 8px 0 8px 10px; font-size:16px; color: white;"> <i class="fa fa-check fa-lg"></i> Активный прайс-лист. Для оформления заказа кликните цену. </div>
+              <div style="background-color: #2e4659; padding: 8px 0 8px 10px; font-size:16px; color: white;"> <i class="fa fa-hand-pointer-o fa-lg"></i> Активный прайс-лист. Для оформления заказа кликните цену. </div>
             </div>
             <?php for($i = 0; $i < count($T_B_Item_Type); $i++){
               $prices_result = selectAllPricesFromItem($T_B_Item_Type[$i]['id_item_type']);
@@ -198,7 +198,7 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
     </div>
   </div>
 </div>
-
+<br/>
 <?php
 echo $id;
 $result = showAllItem(1, 1);
