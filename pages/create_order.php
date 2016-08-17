@@ -9,9 +9,12 @@
     <div style="padding-left: 20px; border-bottom: 1px solid gray;">
       <h1>Оформление заказа</h1>
     </div>
-    <div>
+
       <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 20px;">A5 (210x148) 1000шт. Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия</p></div>
-      <div>
+
+        <form class="form" method="post">
+
+
         <div class="row">
         <div class="col-lg-3">
           <h4 class="ht">Название вашего заказа</h4>
@@ -206,19 +209,81 @@
                 Рейсовый автобус
               </label>
             </div>
+            <div id="deliveryForm" class="col-1-1 pt18">
+              <div id="deliveryForm_2">
+                <div class="form-inline">
+                  <input type="text" class="form-control" name="delivery[userName]" placeholder="Имя Фамилия" value="Иван" >
+                  <input type="text" class="form-control ht" name="delivery[phone]" placeholder="Телефон" value="+7 978 036 72 39">
+                </div>
+                <div class="col-1-3 pt14 pr-s">
+                  <select class="form-control" style="max-width: 280px;" >
+                    <option value="Алушта">Алушта</option>
+                    <option value="Армянск">Армянск</option>
+                    <option value="Бахчисарай">Бахчисарай</option>
+                    <option value="Белогорск">Белогорск</option>
+                    <option value="Вилино">Вилино</option>
+                    <option value="Джанкой">Джанкой</option>
+                    <option value="Евпатория">Евпатория</option>
+                    <option value="Керчь">Керчь</option>
+                    <option value="Краснодар">Краснодар</option>
+                    <option value="Красноперекопск">Красноперекопск</option>
+                    <option value="Москва">Москва</option>
+                    <option value="Москва дер. Машково, Промзона">Москва дер. Машково, Промзона</option>
+                    <option value="Нижний Новгород">Нижний Новгород</option>
+                    <option value="Раздольное">Раздольное</option>
+                    <option value="Ростов на Дону">Ростов на Дону</option>
+                    <option value="Саки">Саки</option>
+                    <option value="Санкт Петербург">Санкт Петербург</option>
+                    <option value="Севастополь">Севастополь</option>
+                    <option value="Симферополь">Симферополь</option>
+                    <option value="Судак">Судак</option>
+                    <option value="Феодосия">Феодосия</option>
+                    <option value="Черноморское (Крым)">Черноморское (Крым)</option>
+                    <option value="Щелкино">Щелкино</option>
+                    <option value="Ялта">Ялта</option>
+                  </select>
+                </div>
+                <div class="col-2-3 pt14">
+                  <select class="form-control" style="max-width: 280px;">
+                    <option value="ул. Ленина 116-г (Отделение №1)">ул. Ленина 116-г (Отделение №1)</option>
+                  </select>
+                </div>
+                <div class="col-1-1 pt14">
+                    <textarea class="form-control" style="max-width: 95%;" name="delivery[description]" placeholder="Дополнительная информация"></textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 40px;">
           <div class="col-lg-3">
             <h4 class="ht">Комментарии к заказу</h4>
           </div>
           <div class="col-lg-9">
             <textarea class="form-control" rows="3" style="max-width: 95%;"></textarea>
+          </div>
         </div>
+        <div class="row" style="padding-bottom: 20px;">
+          <div class="col-lg-3">
+          </div>
+          <div class="col-lg-9">
+            <p>Вес партии: 2.70 кг.</p>
+            <p>Размер посылки: 99х210х90 мм.</p>
+            <div class="row">
+              <div class="col-md-6">
+                <span style="font-size: 22px;"><b>Итого: 90000000000 руб.</b></span>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-danger" data-action="createOrder">Оформить заказ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          </form>
       </div>
     </div>
   </div>
-</div>
+
 <?php
   echo "<br><br>";
   require_once "blocks/footer.php";
