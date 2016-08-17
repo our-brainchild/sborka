@@ -277,3 +277,6 @@ tbody tr:hover{
     width: 100%;
     white-space: nowrap;
 }
+.pt{
+	margin: 10px 10px 10px 10px;
+}
