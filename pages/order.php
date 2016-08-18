@@ -33,13 +33,17 @@
           }else{
             echo "<div role='tabpanel' class='tab-pane' id='".$T_B_Print[$i]['id_print']."'>";
           }
-          echo "<ul>";
-          $showItem = selectItem($T_B_Print[$i]['id_print']);
-          for($j = 0; $j < count($showItem); $j++){
+          if($i == 4){
+            include "blocks/special_order.php";
+          }else{
+            echo "<ul>";
+            $showItem = selectItem($T_B_Print[$i]['id_print']);
+            for($j = 0; $j < count($showItem); $j++){
               include "blocks/showItem.php";
+            }
+            echo "</ul>";
+            echo "</div>";
           }
-          echo "</ul>";
-          echo "</div>";
         }
         ?>
         <!-- <div role="tabpanel" class="tab-pane active" id="home">...</div>
