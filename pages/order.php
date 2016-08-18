@@ -46,41 +46,8 @@
           }
         }
         ?>
-        <!-- <div role="tabpanel" class="tab-pane active" id="home">...</div>
-        <div role="tabpanel" class="tab-pane" id="profile">...</div>
-        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-        <div role="tabpanel" class="tab-pane" id="settings">...</div> -->
-      </div>
-
-    </div>
-
-
-
-
-    <!-- <div class="col-lg-3 col-md-3">
-      <div class="list-group">
-        <?php/*
-        $T_B_Print = selectAllPrint();
-        for($i=0; $i<count($T_B_Print); $i++){
-          echo "<a href='#' class='list-group-item'>
-            <div class='my-style-list-group'>
-                <i class='fa fa-angle-right fa-3x'></i>
-            </div>
-              <h4 class='list-group-item-heading'>".$T_B_Print[$i]['name_print']."</h4>
-              <p class='list-group-item-text'>5 дней</p>
-        </a>" ;
-      }*/ ?>
       </div>
     </div>
-    <?php /* $showItem = selectItem();*/ ?>
-      <div class="col-lg-9 col-md-9">
-        <ul>
-          <?php /* for($i=0; $i<count($showItem); $i++){
-            include "blocks/showItem.php";
-          }*/ ?>
-        </ul>
-
-    </div> -->
   </div>
 </div>
 

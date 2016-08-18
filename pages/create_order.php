@@ -2,6 +2,10 @@
   require_once "start.php";
   require_once "blocks/mainmenu.php";
   echo "<br><br><br><br><br>";
+  $id_item = $_GET['id_item'];
+  $circulation = $_GET['circulation'];
+  $All_Inf_Item = selectCreasing($id_item);
+//  var_dump($All_Inf_Item[0]['name_creasing']); die();
 ?>
 
 <div class="container">

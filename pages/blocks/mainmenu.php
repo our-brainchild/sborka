@@ -41,7 +41,6 @@
             <li><a class="btn btn-default navbar-btn" href="/pages/profile.php"><i class="fa fa-lg fa-user">&nbsp;<span class="badge">id&nbsp;<?php echo $_SESSION['id'];?></span></i><br>Профиль</a></li>
             <li><a class="btn btn-default navbar-btn"><i class="fa fa-lg fa-file-excel-o"></i><br>Прайс</a></li>
             <li><a class="btn btn-default navbar-btn" href="/pages/payment_and_delivery.php">Oплата<br /> и доставка</a></li>
-            <li><a class="btn btn-default navbar-btn" href="/pages/help.php"><i class="fa fa-lg fa-info-circle"></i><br>Помощь</a></li>
             <li><a class="btn btn-default navbar-btn" href="blocks/logout.php"><i class="fa fa-lg fa-sign-out"></i><br>Выйти</a></li>
           </ul>
         </div>
