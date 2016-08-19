@@ -168,7 +168,10 @@ tbody tr:hover{
 .block_item a:hover{
 	text-decoration: none;
 }
-
+.tt{
+	padding-top: 5px;
+	float: left;
+}
 .dashed{
 	color:#2e4659;
 }
