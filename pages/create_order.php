@@ -4,8 +4,16 @@
   echo "<br><br><br><br><br>";
   $id_item = $_GET['id_item'];
   $circulation = $_GET['circulation'];
-  $All_Inf_Item = selectCreasing($id_item);
-//  var_dump($All_Inf_Item[0]['name_creasing']); die();
+
+  $creasing = selectCreasing($id_item);
+  $dop_rez = selectDop_Rez($id_item);
+  $folding = selectFolding($id_item);
+  $hole = selectHole($id_item);
+  $numbering = selectNumbering($id_item);
+  $perforation = selectPerforation($id_item);
+  $rounding = selectInformationForItem($id_item);
+  //var_dump($creasing,$dop_rez,$folding,$hole,$numbering,$perforation, $rounding['rounding'], $rounding['side_item_type']);
+
 ?>
 
 <div class="container">
@@ -17,7 +25,6 @@
       <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 20px;">A5 (210x148) 1000шт. Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия</p></div>
 
         <form class="form" method="post">
-
 
         <div class="row pt">
         <div class="col-lg-3 ">
@@ -34,12 +41,15 @@
         </div>
         <div  class="col-lg-9 ">
           <div class="btn-group" data-toggle="buttons">
+
             <label class="btn btn-default">
               <input type="radio" name="options" id="option1"> Двусторонняя 4+4
             </label>
+
             <label class="btn btn-default">
               <input type="radio" name="options" id="option3"> Односторонняя 4+0
             </label>
+
           </div>
           <br>
         </div>
@@ -48,26 +58,57 @@
           <div class="col-lg-3 ">
             <h4 class="ht">Загрузите изображение</h4>
           </div>
+
           <div class="col-lg-9 ">
             <!-- 0<form role="form" style="padding-top: 5px;"> -->
+
               <p style="padding-top: 10px;">Перед загрузкой ознакомьтесь с <a href="#" data-toggle="modal" data-target="#modal-1">требованиями к макетам</a></p>
+
               <button class="btn btn-primary" onclick="document.getElementById('file1').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
               <input type="file" class="file" id="file1"/>
-              <br>
               <p>Лицевая сторона</p>
+
+              <br/>
+
               <button class="btn btn-primary" onclick="document.getElementById('file2').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
               <input type="file" class="file" id="file2"/>
               <p>Обратная сторона</p>
+
             <!-- </form> -->
           </div>
+
         </div>
         <div class="row pt">
-          <div class="col-lg-3 ">
+          <?php if(count($creasing) != 0 || count($dop_rez) != 0 || count($folding) != 0 || count($hole) != 0 || count($numbering) != 0 || count($perforation) != 0 || $rounding['rounding'] != 0 ){
+                  echo "<div class='col-lg-3'>
+                          <h4 class='ht'>Послепечатные работы</h4>
+                        </div>";
+                    }
+          ?>
+          <!-- <div class="col-lg-3 ">
             <h4 class="ht">Послепечатные работы</h4>
-          </div>
+          </div> -->
+
           <div class="col-lg-9 ">
             <table cellspacing>
-              <tr>
+              <?php
+                //var_dump(count($folding));
+                if(count($folding) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                  for($i = 0; option < count($folding); $i++){
+                    echo "<option>".$folding[$i]['name_folding']."</option>";
+                  }
+                  echo "</select>
+                          </td>
+                          <td valign='middle' >
+                            <span style='padding-left:5px;''>  Фальцовка (сгиб) <span class='dashed'><b> 0,1 руб.</b></span> шт</span>
+                          </td>
+                        </tr>";
+                      }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>0</option>
@@ -79,8 +120,25 @@
                 <td valign="middle" >
                 <span style="padding-left:5px;">  Фальцовка (сгиб) <span class="dashed"><b> 0,1 руб.</b></span> шт</span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <?php
+                //var_dump(count($dop_rez));
+                if(count($dop_rez) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                for($i = 0; $i < count($dop_rez); $i++){
+                  echo "<option>".$dop_rez[$i]['name_dop_rez']."</option>";
+                }
+                echo "</select>
+                          </td>
+                          <td valign='middle' >
+                          <span style='padding-left:5px;'>  Дополнительный рез <span class='dashed'><b>+50 руб. </b></span>за 1000 шт. </span>
+                          </td>
+                        </tr>";
+              }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>0</option>
@@ -105,13 +163,30 @@
                     <option>19</option>
                     <option>20</option>
                   </select>
-
                 </td>
                 <td valign="middle" >
                 <span style="padding-left:5px;">  Дополнительный рез <span class="dashed"><b>+50 руб. </b></span>за 1000 шт. </span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+
+              <?php
+              //  var_dump(count($perforation));
+                if(count($perforation) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                for($i = 0; $i < count($perforation); $i++){
+                  echo "<option>".$perforation[$i]['name_perforation']."</option>";
+                }
+                echo "</select>
+                          </td>
+                          <td valign='middle' >
+                          <span style='padding-left:5px;'>  Перфорация <span class='dashed'><b> +0,2 руб. </b></span> за 1 подход за 1 шт. </span>
+                          </td>
+                        </tr>";
+              }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>нет</option>
@@ -125,8 +200,25 @@
                 <td valign="middle" >
                 <span style="padding-left:5px;">  Перфорация <span class="dashed"><b> +0,2 руб. </b></span> за 1 подход за 1 шт. </span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <?php
+              //var_dump(count($numbering));
+                if(count($numbering) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                for($i = 0; $i < count($numbering); $i++){
+                  echo "<option>".$numbering[$i]['name_numbering']."</option>";
+                }
+                echo "</select>
+                          </td>
+                          <td valign='middle' >
+                          <span style='padding-left:5px;'>  Нумерация <span class='dashed'><b>+0,4 руб.</b></span> за 1 номер за 1 шт (минимальный размер между номерами 62мм). </span>
+                          </td>
+                        </tr>";
+              }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>нет</option>
@@ -137,8 +229,25 @@
                 <td valign="middle" >
                 <span style="padding-left:5px;">  Нумерация <span class="dashed"><b>+0,4 руб.</b></span> за 1 номер за 1 шт (минимальный размер между номерами 62мм).</span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <?php
+              //var_dump(count($hole));
+                if(count($hole) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                for($i = 0; $i < count($hole); $i++){
+                  echo "<option>".$hole[$i]['name_hole']."</option>";
+                }
+                echo "</select>
+                          </td>
+                          <td valign='middle' >
+                          <span style='padding-left:5px;'> Отверстие ⌀ 5 мм  <span class='dashed'><b>+200 руб.</b></span>за 1000 шт.  </span>
+                          </td>
+                        </tr>";
+              }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>0</option>
@@ -149,8 +258,25 @@
                 <td valign="middle" >
                 <span style="padding-left:5px;"> Отверстие ⌀ 5 мм  <span class="dashed"><b>+200 руб.</b></span>за 1000 шт. </span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <?php
+              //var_dump(count($creasing));
+                if(count($creasing) > 0){
+                  echo "<tr>
+                          <td>
+                            <select class='form-control'>";
+                for($i = 0; $i < count($creasing); $i++){
+                  echo "<option>".$creasing[$i]['name_creasing']."</option>";
+                }
+                echo "</select>
+                          </td>
+                          <td valign='middle' >
+                          <span style='padding-left:5px;'> Биговка (канавка) <span class='dashed'><b>0,5 руб.</b></span> шт.   </span>
+                          </td>
+                        </tr>";
+              }
+              ?>
+              <!-- <tr>
                 <td>
                   <select class="form-control">
                     <option>0</option>
@@ -162,8 +288,21 @@
                 <td valign="middle" >
                 <span style="padding-left:5px;">Биговка (канавка) <span class="dashed"><b>0,5 руб.</b></span> шт. </span>
                 </td>
-              </tr>
-              <tr>
+              </tr> -->
+              <?php
+                if($rounding['rounding'] == 1){
+                  echo "<tr>
+                          <td colspan='2'>
+                            <div class='checkbox'>
+                              <label>
+                                <input type='checkbox'>  Закругление углов <span class='dashed'><b>+150 руб.</b></span> за 1000 шт.
+                              </label>
+                            </div>
+                          </td>
+                        </tr>";
+                }
+              ?>
+              <!-- <tr>
                 <td colspan="2">
                   <div class="checkbox">
                     <label>
@@ -171,11 +310,12 @@
                     </label>
                   </div>
                 </td>
-              </tr>
+              </tr> -->
+
             </table>
           </div>
         </div>
-        <div class="row pt">
+        <!-- <div class="row pt">
           <div class="col-lg-3 ">
             <h4 class="ht">Превью макета</h4>
           </div>
@@ -183,7 +323,7 @@
             <button class="btn btn-primary" onclick="document.getElementById('file3').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
             <input type="file" class="file" id="file3"/>
           </div>
-        </div>
+        </div> -->
         <div class="row pt">
           <div class="col-lg-3 ">
             <h4 class="ht">Способ доставки</h4>
@@ -271,8 +411,8 @@
           <div class="col-lg-3 ">
           </div>
           <div class="col-lg-9 ">
-            <p>Вес партии: 2.70 кг.</p>
-            <p>Размер посылки: 99х210х90 мм.</p>
+            <!-- <p>Вес партии: 2.70 кг.</p>
+            <p>Размер посылки: 99х210х90 мм.</p> -->
             <div class="row">
               <div class="col-md-6 ">
                 <span style="font-size: 22px;"><b>Итого: 90000000000 руб.</b></span>

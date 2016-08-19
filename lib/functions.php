@@ -135,7 +135,11 @@ function selectCreasing($id_item){
     ON
     `creasing`.`id_creasing` = `array_creasing`.`id_creasing_array_creasing`
     WHERE `id_item_type_array_creasing`='$id_item'");
-  return resultSetToArray($result);
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
 }
 function selectDop_Rez($id_item){
   global $mysqli;
@@ -145,7 +149,11 @@ function selectDop_Rez($id_item){
     ON
     `dop_rez`.`id_dop_rez` = `array_dop_rez`.`id_dop_rez_array_dop_rez`
     WHERE `id_item_type_array_dop_rez`='$id_item'");
-  return resultSetToArray($result);
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
 }
 function selectFolding($id_item){
   global $mysqli;
@@ -155,7 +163,11 @@ function selectFolding($id_item){
     ON
     `folding`.`id_folding` = `array_folding`.`id_folding_array_folding`
     WHERE `id_item_type_array_folding`='$id_item'");
-  return resultSetToArray($result);
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
 }
 function selectHole($id_item){
   global $mysqli;
@@ -165,17 +177,25 @@ function selectHole($id_item){
     ON
     `hole`.`id_hole` = `array_hole`.`id_hole_array_hole`
     WHERE `id_item_type_array_hole`='$id_item'");
-  return resultSetToArray($result);
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
 }
 function selectNumbering($id_item){
   global $mysqli;
-  $result = $mysqli -> query("SELECT `name_numbering` FROM `array_nambering`
+  $result = $mysqli -> query("SELECT `name_numbering` FROM `array_numbering`
     INNER JOIN
     `numbering`
     ON
     `numbering`.`id_numbering` = `array_numbering`.`id_numbering_array_numbering`
     WHERE `id_item_type_array_numbering`='$id_item'");
-  return resultSetToArray($result);
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
 }
 function selectPerforation($id_item){
   global $mysqli;
@@ -183,8 +203,18 @@ function selectPerforation($id_item){
     INNER JOIN
     `perforation`
     ON
-    `perforation`.`id_perforation` = `array_perforation`.`id_perfiration_array_perforation`
+    `perforation`.`id_perforation` = `array_perforation`.`id_perforation_array_perforation`
     WHERE `id_item_type_array_perforation`='$id_item'");
-  return resultSetToArray($result);
+    //var_dump($result);die();
+    if($result == NULL){
+      return false;
+    }else{
+      return resultSetToArray($result);
+    }
+}
+function selectInformationForItem($id_item){
+  global $mysqli;
+  $result = $mysqli -> query("SELECT `name_item_type`, `rounding`, `side_item_type` FROM `item_type` WHERE `id_item_type`='$id_item'");
+  return $result -> fetch_assoc();
 }
 ?>
