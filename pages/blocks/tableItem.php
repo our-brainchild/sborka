@@ -19,7 +19,7 @@
       <td>Печать за 3-5 дней (руб) </td>
     <?php
       for($j=0; $j<count($prices_result); $j++){
-          echo "<td> <a href='/pages/create_order.php?id_item=".$T_B_Item_Type[$i]['id_item_type']."&circulation=".$prices_result[$j]['id_circulation']."'>&nbsp;".$prices_result[$j]['value_cost']."&nbsp;</a> </th>";
+          echo "<td> <a href='/pages/create_order.php?id_item=".$T_B_Item_Type[$i]['id_item_type']."&circulation=".$prices_result[$j]['id_circulation']."&size_circulation=".$prices_result[$j]['size_circulation']."'>&nbsp;".$prices_result[$j]['value_cost']."&nbsp;</a> </th>";
       }
     ?>
   </tr>

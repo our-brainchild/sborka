@@ -18,8 +18,7 @@
     <h3>Добро пожаловать <?php echo $user_TBD["name_user"]." ".$user_TBD["lastname_user"]; ?> </h3>
     <h5><b>Ваш регистрационный номер <?php echo $_SESSION["id"]; ?></b></h5>
     <h5>Баланс: <?php echo $client_TBD["score_client"]; ?> руб.</h5>
-    <h5>Вы находитесь в группе:</h5>
-    <h5>Размер вашей персональной скидки: </h5>
+    <h5>Вы находитесь в группе: Клиент</h5>
     <p></p>
     <p></p>
     <p></p>
@@ -29,6 +28,7 @@
       <ul class="nav nav-tabs">
         <li class="active"><a href="#profiledata" data-toggle="tab">Персональные данные</a></li>
         <li><a href="#delivery" data-toggle="tab">Способы доставки</a></li>
+        <li><a href="#discount" data-toggle="tab">Ваш дисконт</a></li>
         <li><a href="#messages" data-toggle="tab">Настройка уведомлений</a></li>
         <li><a href="#pass" data-toggle="tab">Смена пароля</a></li>
         <li><a href="#regdocument" data-toggle="tab">Регистрационные документы</a></li>
@@ -128,34 +128,35 @@
 
         </div>
         <div class="tab-pane fade" id="delivery">...</div>
+        <div class="tab-pane fade" id="discount">Ваш личный дисконт(развод) </div>
         <div class="tab-pane fade" id="messages">
 
-          <div class="container">
-            <div class="box" style="display: block;">
-  		        <div id="notify">
-                <form action="?id=1" method="post" enctype="multipart/form-data" name="notifications" id="notifications">
-                  <table class="pages">
+              <div class="container">
+                <!-- <form action="?id=1" method="post" enctype="multipart/form-data" name="notifications" id="notifications"> -->
+                  <table class="table table-hover">
                     <thead>
-                      <tr><td>получать уведомления</td><td align="center"> на E-MAIL</td><td align="center"> SMS на телефон</td></tr></thead>
+                      <tr><td>Получать уведомления</td><td align="center"> на e-mail</td></tr></thead>
                       <tbody><tr>
                         <td>&nbsp;</td>
-                    <td align="center"><label for="notify_mail"></label><input name="notify_mail" type="text" id="notify_mail" value="ASprint.Reklama@ya.ru"></td>
-                    <td align="center"><label for="notify_tel"></label><input name="notify_tel" type="text" id="notify_tel" value="+380951948180"></td>
+                    <td align="center"><label for="notify_mail"></label><input type="text"  value="<?php echo $user_TBD["email_user"];  ?>"></td>
                   </tr>
-                  <tr><td>заказ оформлен</td><td align="center"></td><td align="center"></td></tr>
-                  <tr><td>заказ принят в работу</td><td align="center"><input name="mail_receive" type="checkbox" id="mail_receive" value="1"></td><td align="center"><input name="sms_receive" type="checkbox" id="sms_receive" value="1"> <span style="color:#093;">бесплатно!</span></td></tr>
-                  <tr><td>заказ отправлен в печать</td><td align="center"><input name="mail_print" type="checkbox" id="mail_print" value="1"></td><td align="center"><input name="sms_print" type="checkbox" id="sms_print" value="1"></td></tr>
-                  <tr><td>на послепечатной обработке</td><td align="center"><input name="mail_post" type="checkbox" id="mail_post" value="1"></td><td align="center"><input name="sms_post" type="checkbox" id="sms_post" value="1"></td></tr>
-                  <tr><td>заказ готов</td><td align="center"><input name="mail_sklad" type="checkbox" id="mail_sklad" value="1" checked="checked"></td><td align="center"><input name="sms_sklad" type="checkbox" id="sms_sklad" value="1"> <span style="color:#093;">бесплатно!</span></td></tr>
-                  <tr><td>заказ отправлен (информация для получения)</td><td align="center"><input name="mail_send" type="checkbox" id="mail_send" value="1" checked="checked"></td><td align="center"><input name="sms_send" type="checkbox" id="sms_send" value="1" checked="checked"> <span style="color:#093;">бесплатно!</span></td></tr>
-                  <tr><td>&nbsp;</td><td align="center"></td><td align="center"></td></tr>
-                  <tr><td>проблемы с заказом</td><td align="center"><input name="mail_problem" type="checkbox" id="mail_problem" value="1" checked="checked"></td><td align="center"><input name="sms_problem" type="checkbox" id="sms_problem" value="1"> <span style="color:#093;">бесплатно!</span></td></tr>
-                  <tr><td>пополнение баланса</td><td align="center"><input name="mail_finance" type="checkbox" id="mail_finance" value="1"></td><td align="center"><input name="sms_finance" type="checkbox" id="sms_finance" value="1"> <span style="color:#093;">бесплатно!</span></td></tr>
-                  <tr><td><input name="not1223" type="hidden" value="765"></td><td colspan="2"><input type="submit" name="dd" id="ss" value="сохранить настройки"></td></tr>
-                    </tbody></table>
-                </form><span class="info">Все уведомления обязательно дублируются через систему сообщений.</span></div>
-  	       </div>
-         </div>
+                  <tr><td>Заказ оформлен</td><td align="center"><input type="checkbox"></td></tr>
+                  <tr><td>Заказ принят в работу</td><td align="center"><input type="checkbox"></td></tr>
+                  <tr><td>Заказ отправлен в печать</td><td align="center"><input type="checkbox"></td></tr>
+                  <tr><td>Заказ на послепечатной обработке</td><td align="center"><input  type="checkbox"></td></tr>
+                  <tr><td>Заказ готов</td><td align="center"><input type="checkbox"></tr>
+                  <tr><td>Заказ отправлен (информация для получения)</td><td align="center"><input  type="checkbox"></td></tr>
+                  <tr><td>Проблемы с заказом</td><td align="center"><input type="checkbox"></td></tr>
+                  <tr><td>Пополнение баланса</td><td align="center"><input type="checkbox"></td></tr>
+                  <tr><td colspan="3" align="center"><span class="dashed"><i class="fa fa-certificate"></i> Все уведомления обязательно дублируются через систему сообщений.</span></tr>
+                  <tr><td colspan="2" align="right"><input type="submit" class="btn btn-primary" value="сохранить настройки">
+                  </td></tr>
+                    </tbody>
+                  </table>
+                <!-- </form> -->
+
+              </div>
+
         </div>
 
         <div class="tab-pane fade" id="pass">
