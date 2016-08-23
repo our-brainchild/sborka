@@ -56,7 +56,7 @@ FROM
 function selectAllPricesFromItem($id_item_type){
   //Select All cost and circulation from Data Base
   global $mysqli;
-  $result = $mysqli->query("SELECT `value_cost`, `size_circulation`, `id_item_type_prices`
+  $result = $mysqli->query("SELECT `value_cost`, `size_circulation`, `id_item_type_prices`,`id_circulation`
 FROM
   `prices`
   INNER JOIN
@@ -215,6 +215,11 @@ function selectPerforation($id_item){
 function selectInformationForItem($id_item){
   global $mysqli;
   $result = $mysqli -> query("SELECT `name_item_type`, `rounding`, `side_item_type` FROM `item_type` WHERE `id_item_type`='$id_item'");
+  return $result -> fetch_assoc();
+}
+function selectCostItem($id_item, $circulation){
+  global $mysqli;
+  $result = $mysqli -> query("SELECT `value_cost` FROM `prices` INNER JOIN `cost` ON `prices`.`id_cost`=`cost`.`id_cost` WHERE `prices`.`id_item_type_prices`='$id_item' AND `prices`.`id_circulation_prices`='$circulation'");
   return $result -> fetch_assoc();
 }
 ?>

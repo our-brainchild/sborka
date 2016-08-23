@@ -11,6 +11,7 @@
 	$row=$result->fetch_assoc();
 	$_SESSION["email"]=$row["email"];
 	$_SESSION["id"]=$row["id_user"];
+	$_SESSION["name_user"]=$row['name_user'];
 	}
 	else $_SESSION["error_auth"]=1;
 	header("Location: ".$_SERVER["HTTP_REFERER"]);

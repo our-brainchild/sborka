@@ -12,8 +12,6 @@
   $numbering = selectNumbering($id_item);
   $perforation = selectPerforation($id_item);
   $rounding = selectInformationForItem($id_item);
-  //var_dump($creasing,$dop_rez,$folding,$hole,$numbering,$perforation, $rounding['rounding'], $rounding['side_item_type']);
-
 ?>
 
 <div class="container">
@@ -22,7 +20,7 @@
       <h1>Оформление заказа</h1>
     </div>
 
-      <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 20px;">A5 (210x148) 1000шт. Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия</p></div>
+      <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 20px;"><?php echo $rounding['name_item_type']; ?></p></div>
 
         <form class="form" method="post">
 
@@ -36,68 +34,77 @@
         </div>
         </div>
         <div class="row pt">
-        <div class="col-lg-3 ">
-          <h4 class="ht">Красочность печати</h4>
+
+        <?php
+        if($rounding['side_item_type'] == 'twoside'){
+            echo "
+            <div class='col-lg-3'>
+              <h4 class='ht'>Красочность печати</h4>
+            </div>
+            <div  class='col-lg-9'>
+              <div class='btn-group' data-toggle='buttons'>
+
+                <label class='btn btn-default'>
+                  <input type='radio' name='options' id='option1'> Двусторонняя 4+4
+                </label>
+
+                <label class='btn btn-default'>
+                  <input type='radio' name='options' id='option3'> Односторонняя 4+0
+                </label>
+
+              </div>
+              <br>
+            </div>";
+        }
+        ?>
+
         </div>
-        <div  class="col-lg-9 ">
-          <div class="btn-group" data-toggle="buttons">
 
-            <label class="btn btn-default">
-              <input type="radio" name="options" id="option1"> Двусторонняя 4+4
-            </label>
-
-            <label class="btn btn-default">
-              <input type="radio" name="options" id="option3"> Односторонняя 4+0
-            </label>
-
+        <div class='row'>
+          <div class='col-lg-3'>
+            <h4 class='ht'>Загрузите изображение</h4>
           </div>
-          <br>
-        </div>
-        </div>
-        <div class="row pt">
-          <div class="col-lg-3 ">
-            <h4 class="ht">Загрузите изображение</h4>
-          </div>
 
-          <div class="col-lg-9 ">
-            <!-- 0<form role="form" style="padding-top: 5px;"> -->
 
-              <p style="padding-top: 10px;">Перед загрузкой ознакомьтесь с <a href="#" data-toggle="modal" data-target="#modal-1">требованиями к макетам</a></p>
+          <div class='col-lg-9'>
+              <p style='padding-top: 10px;'>Перед загрузкой ознакомьтесь с <a href='#' data-toggle='modal' data-target='#modal-1'>требованиями к макетам</a></p>
 
-              <button class="btn btn-primary" onclick="document.getElementById('file1').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
-              <input type="file" class="file" id="file1"/>
+              <button class='btn btn-primary' onclick="document.getElementById('file1').click()"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
+              <input type='file' class='file' id='file1'/>
               <p>Лицевая сторона</p>
 
               <br/>
-
-              <button class="btn btn-primary" onclick="document.getElementById('file2').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
-              <input type="file" class="file" id="file2"/>
-              <p>Обратная сторона</p>
+              <?php
+              if($rounding['side_item_type'] == 'twoside'){
+                echo "<button class='btn btn-primary' onclick=\"document.getElementById('file2').click()\"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
+                <input type='file' class='file' id='file2'/>
+                <p>Обратная сторона</p>";
+              }
+              ?>
 
             <!-- </form> -->
           </div>
 
         </div>
         <div class="row pt">
-          <?php if(count($creasing) != 0 || count($dop_rez) != 0 || count($folding) != 0 || count($hole) != 0 || count($numbering) != 0 || count($perforation) != 0 || $rounding['rounding'] != 0 ){
-                  echo "<div class='col-lg-3'>
-                          <h4 class='ht'>Послепечатные работы</h4>
-                        </div>";
-                    }
+          <?php
+          if(count($creasing) != 0 || count($dop_rez) != 0 || count($folding) != 0 || count($hole) != 0 || count($numbering) != 0 || count($perforation) != 0 || $rounding['rounding'] != 0 ){
+              echo "<div class='col-lg-3'>
+                      <h4 class='ht'>Послепечатные работы</h4>
+                    </div>";
+          }
           ?>
           <!-- <div class="col-lg-3 ">
             <h4 class="ht">Послепечатные работы</h4>
           </div> -->
-
-          <div class="col-lg-9 ">
+          <div class="col-lg-9">
             <table cellspacing>
               <?php
-                //var_dump(count($folding));
                 if(count($folding) > 0){
                   echo "<tr>
                           <td>
                             <select class='form-control'>";
-                  for($i = 0; option < count($folding); $i++){
+                  for($i = 0; $i < count($folding); $i++){
                     echo "<option>".$folding[$i]['name_folding']."</option>";
                   }
                   echo "</select>
@@ -107,22 +114,6 @@
                           </td>
                         </tr>";
                       }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;">  Фальцовка (сгиб) <span class="dashed"><b> 0,1 руб.</b></span> шт</span>
-                </td>
-              </tr> -->
-              <?php
-                //var_dump(count($dop_rez));
                 if(count($dop_rez) > 0){
                   echo "<tr>
                           <td>
@@ -137,40 +128,6 @@
                           </td>
                         </tr>";
               }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                    <option>13</option>
-                    <option>14</option>
-                    <option>15</option>
-                    <option>16</option>
-                    <option>17</option>
-                    <option>18</option>
-                    <option>19</option>
-                    <option>20</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;">  Дополнительный рез <span class="dashed"><b>+50 руб. </b></span>за 1000 шт. </span>
-                </td>
-              </tr> -->
-
-              <?php
-              //  var_dump(count($perforation));
                 if(count($perforation) > 0){
                   echo "<tr>
                           <td>
@@ -185,24 +142,6 @@
                           </td>
                         </tr>";
               }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>нет</option>
-                    <option>1 подход</option>
-                    <option>2 подхода</option>
-                    <option>3 подхода</option>
-                    <option>4 подхода</option>
-                    <option>5 подходов</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;">  Перфорация <span class="dashed"><b> +0,2 руб. </b></span> за 1 подход за 1 шт. </span>
-                </td>
-              </tr> -->
-              <?php
-              //var_dump(count($numbering));
                 if(count($numbering) > 0){
                   echo "<tr>
                           <td>
@@ -217,21 +156,6 @@
                           </td>
                         </tr>";
               }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>нет</option>
-                    <option>1 номер</option>
-                    <option>2 номера</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;">  Нумерация <span class="dashed"><b>+0,4 руб.</b></span> за 1 номер за 1 шт (минимальный размер между номерами 62мм).</span>
-                </td>
-              </tr> -->
-              <?php
-              //var_dump(count($hole));
                 if(count($hole) > 0){
                   echo "<tr>
                           <td>
@@ -246,21 +170,6 @@
                           </td>
                         </tr>";
               }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;"> Отверстие ⌀ 5 мм  <span class="dashed"><b>+200 руб.</b></span>за 1000 шт. </span>
-                </td>
-              </tr> -->
-              <?php
-              //var_dump(count($creasing));
                 if(count($creasing) > 0){
                   echo "<tr>
                           <td>
@@ -275,21 +184,6 @@
                           </td>
                         </tr>";
               }
-              ?>
-              <!-- <tr>
-                <td>
-                  <select class="form-control">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </td>
-                <td valign="middle" >
-                <span style="padding-left:5px;">Биговка (канавка) <span class="dashed"><b>0,5 руб.</b></span> шт. </span>
-                </td>
-              </tr> -->
-              <?php
                 if($rounding['rounding'] == 1){
                   echo "<tr>
                           <td colspan='2'>
@@ -302,62 +196,50 @@
                         </tr>";
                 }
               ?>
-              <!-- <tr>
-                <td colspan="2">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">  Закругление углов <span class="dashed"><b>+150 руб.</b></span> за 1000 шт.
-                    </label>
-                  </div>
-                </td>
-              </tr> -->
-
             </table>
           </div>
         </div>
-        <!-- <div class="row pt">
-          <div class="col-lg-3 ">
-            <h4 class="ht">Превью макета</h4>
-          </div>
-          <div class="col-lg-9 ">
-            <button class="btn btn-primary" onclick="document.getElementById('file3').click()"><i class="fa fa-download" aria-hidden="true"></i> Загрузить</button>
-            <input type="file" class="file" id="file3"/>
-          </div>
-        </div> -->
+
         <div class="row pt">
+
           <div class="col-lg-3 ">
             <h4 class="ht">Способ доставки</h4>
           </div>
+
           <div class="col-lg-9">
             <div class="radio">
               <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="true">
                 Самовывоз (<span class="dashed"><b>Симферопольский район, с. Фонтаны, ул. Чкалова, д 65 </b></span>)
               </label>
             </div>
+
             <div class="radio">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
                 Быстрая почта" (115 руб., за счёт клиента)
               </label>
             </div>
+
             <div class="radio">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
                 Доставка по г. Симферополю (бесплатно)
               </label>
             </div>
+
             <div class="radio">
               <label>
                 <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
                 Рейсовый автобус
               </label>
             </div>
+            <?php $user = getArrayClient($_SESSION['id']) ?>
             <div id="deliveryForm" class="col-1-1 18">
               <div id="deliveryForm_2">
                 <div class="form-inline">
-                  <input type="text" class="form-control" name="delivery[userName]" placeholder="Имя Фамилия" value="Иван" >
-                  <input type="text" class="form-control ht" name="delivery[phone]" placeholder="Телефон" value="+7 978 036 72 39">
+                  <input type="text" class="form-control" name="delivery[userName]" placeholder="Имя Фамилия" value="<?php echo $_SESSION["name_user"];?>" >
+                  <input type="text" class="form-control ht" name="delivery[phone]" placeholder="Телефон" value="<?php echo $user['main_phone_number_client'];?>">
                 </div>
                 <div class="col-1-3 14 pr-s">
                   <select class="form-control" style="max-width: 280px;" >
@@ -387,18 +269,22 @@
                     <option value="Ялта">Ялта</option>
                   </select>
                 </div>
+
                 <div class="col-2-3 14">
                   <select class="form-control" style="max-width: 280px;">
                     <option value="ул. Ленина 116-г (Отделение №1)">ул. Ленина 116-г (Отделение №1)</option>
                   </select>
                 </div>
+
                 <div class="col-1-1 14">
                     <textarea class="form-control" style="max-width: 95%;" name="delivery[descriion]" placeholder="Дополнительная информация"></textarea>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
+
         <div class="row pt" style="margin-bottom: 40px;">
           <div class="col-lg-3 ">
             <h4 class="ht">Комментарии к заказу</h4>
@@ -407,15 +293,17 @@
             <textarea class="form-control" rows="3" style="max-width: 95%;"></textarea>
           </div>
         </div>
+
         <div class="row pt" style="padding-bottom: 20px;">
           <div class="col-lg-3 ">
           </div>
           <div class="col-lg-9 ">
             <!-- <p>Вес партии: 2.70 кг.</p>
             <p>Размер посылки: 99х210х90 мм.</p> -->
+            <?php $cost = selectCostItem($id_item,$circulation); ?>
             <div class="row">
               <div class="col-md-6 ">
-                <span style="font-size: 22px;"><b>Итого: 90000000000 руб.</b></span>
+                <span style="font-size: 22px;"><b>Итого: <?php echo $cost['value_cost']; ?> руб.</b></span>
               </div>
               <div class="col-md-6">
                 <button class="btn btn-danger" data-action="createOrder">Оформить заказ</button>
