@@ -216,7 +216,9 @@ tbody tr:hover{
 		opacity: 0.01;
 
 }
-.ht{margin-left: 15px;}
+.ht{
+	margin-left: 15px;
+}
 .dropdown1{
 	border: white;
 	border-color: white !important;
@@ -258,8 +260,6 @@ tbody tr:hover{
   display: inline-block;
 	padding: 3px 3px 3px 23px;
 }
-
-
 .size.height {
     left: -62px;
     text-align: center;
