@@ -227,7 +227,7 @@
                 </div>
                 <div class="row ">
                   <span class="ht pt">Дополнительная двойная пропайка (спайка баннера между собой при привышении размеров ширины материала 3,2м)</span>
-                  <input  type="txt"style="max-width:250px;" class="form-control pt"  value="">
+                  <input  type="txt"style="max-width:250px;" class="form-control ht pt"  value="">
                 </div>
                 <div class="row">
                   <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
@@ -387,7 +387,117 @@
                 <div class="row  ">
                   <p class="tt ht pt">Ширина:</p>
                   <div class="col-md-2 pt">
-                    <input type="text"class="form-control" placeholder="0">
+                    <input type="text"class="form-control" value="6000" disabled>
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control"  value="3000" disabled>
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
+          </div>
+          <div class="tab-pane" id="citylight">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Ситилайт стандарт 1,2х1,8м стандарт 2pass - 197.6руб. кв;197.6;citylight2PASS;98.04">Ситилайт стандарт 1,2х1,8м стандарт 2pass - 426.816 руб.</option>
+                      <option value="Ситилайт стандарт 1,2х1,8м бизнес 4pass - 288.8руб. кв;288.8;citylight4PASS;115.52">Ситилайт стандарт 1,2х1,8м бизнес 4pass - 623.808 руб.</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row  ">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" value="1200" disabled>
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control"  value="1800" disabled>
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
+          </div>
+          <div class="tab-pane" id="blueback-not-standard">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Бумага блюбэк 720dpi - 121.6руб.;121.6;blueback720;71.44">Бумага блюбэк 720dpi - 121.6руб.</option>
+                      <option value="Бумага блюбэк 360dpi - 106.4руб.;106.4;blueback360;62.32">Бумага блюбэк 360dpi - 106.4руб.</option>
+                    </select>
+                    <small><b>*Доступная ширина мататериала (печати): 1,5м</b></small>
+                  </div>
+                  <br><br><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-2 pt">
+                    <select class="form-control ">
+                      <option value="">нет</option>
+                      <option >гляец</option>
+                      <option value="">мат</option>
+                    </select>
+                  </div>
+                  <b class="tt pt">Ламинация + 159.6 руб. \м2  (1м , 1,2м , 1,5м)</b>
+                </div>
+                <div class="row">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0" >
                   </div>
                   <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
                   <div class="col-md-2 pt">
@@ -407,17 +517,223 @@
                 </div>
             </form>
           </div>
-          <div class="tab-pane" id="citylight">
-          </div>
-          <div class="tab-pane" id="blueback-not-standard">
-          </div>
           <div class="tab-pane" id="city-paper">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Бумага СИТИ 720dpi - 231.04руб.;231.04;citylight720;124.64">Бумага СИТИ 720dpi - 231.04руб.</option>
+                      <option value="Бумага СИТИ 360dpi - 203.68руб.;203.68;citylight360;107.16">Бумага СИТИ 360dpi - 203.68руб.</option>
+                      <option value="Бумага СИТИ 1440dpi - 269.04руб.;269.04;citylight1440;68.4" class="list-group-item-warning">Бумага СИТИ 1440dpi - 269.04руб.</option>
+                    </select>
+                    <small><b>*Доступная ширина мататериала (печати): 1,2м</b></small>
+                  </div>
+                  <br><br><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-2 pt">
+                    <select class="form-control ">
+                      <option value="">нет</option>
+                      <option >гляец</option>
+                      <option value="">мат</option>
+                    </select>
+                  </div>
+                  <b class="tt pt">Ламинация + 159.6 руб. \м2  (1м , 1,2м , 1,5м)</b>
+                </div>
+                <div class="row">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0" >
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0">
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
           </div>
           <div class="tab-pane" id="flags-grid">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Флажная сетка - 988 руб.">Флажная сетка - 988 руб.</option>
+                    </select>
+                    <small><b>*Доступная ширина мататериала (печати): 1,5м</b></small>
+                  </div>
+                  <br><br><br>
+                </div>
+                <div class="row">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0" >
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0">
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
           </div>
           <div class="tab-pane" id="wallpapers">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Фотообои ШТУКАТУРКА(Plastics) 1440dpi - 1260руб.">Фотообоии ШТУКАТУРКА(Plastics) 1440dpi - 1260руб.</option>
+                    </select>
+                    <small><b>*Доступная ширина мататериала (печати): 1,25м</b></small>
+                    <a href="/images/neschen_stucco.jpg" alt="Увеличить" target="_blank"title="Увеличить">
+                      <img src="/images/neschen_stucco.jpg" width="100" border="0">
+                    </a>
+                  </div>
+                  <br><br><br>
+                </div>
+                <div class="row">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" value="1250" disabled>
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0">
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
           </div>
           <div class="tab-pane" id="epson">
+            <form class="form">
+                <div class="row ">
+                  <button type="button" class="btn btn-danger pt" data-toggle="button">СРОЧНО</button>
+                </div>
+                <div class="row ">
+                  <p class="pt tt">Количество копий:</p>
+                  <div class="col-md-2 pt">
+                    <input type="number" class="form-control" placeholder="0" value="1">
+                  </div>
+                  <p class="pt tt">&nbsp;шт.</p>
+                </div>
+                <div class="row ">
+                  <p class="pt tt" style="float:left;">Название заказа:</p>
+                  <div class="col-md-4 pt">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-5 pt">
+                    <select class="form-control">
+                      <option value="Фотобумага ГЛЯНЕЦ 170гр\м - 1140руб.;1140;EPSON_GL;760">Фотобумага ГЛЯНЕЦ 170гр\м - 1140руб.</option>
+                      <option value="Фотобумага МАТ 140гр\м - 1140руб.;1140;EPSON_MATT;760">Фотобумага МАТ 140гр\м - 1140руб.</option>
+                      <option value="Фотобумага МАТ САМОКЛЕЙКА 140гр\м - 1292руб.;1292;EPSON_SK;1520">Фотобумага МАТ САМОКЛЕЙКА 140гр\м - 1292руб.</option>
+                      <option value="ХОЛСТ - 1900руб.;1900;EPSON_HOLST;1900">ХОЛСТ - 1900руб.</option>
+                    </select>
+                    <small><b>*Доступная ширина мататериала (печати): 0,6м</b></small>
+                  </div>
+                  <br><br><br>
+                </div>
+                <div class="row">
+                  <p class="tt ht pt">Ширина:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" value="600" disabled>
+                  </div>
+                  <p class="tt pt">мм.&nbsp;&nbsp;&nbsp;&nbsp;Высота:</p>
+                  <div class="col-md-2 pt">
+                    <input type="text"class="form-control" placeholder="0">
+                  </div>
+                  <p class="tt pt">мм.</p>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button"> Разрезать по периметру 3руб\м.п.</button>
+                </div>
+                <div class="row ">
+                  <button type="button" class="btn btn-default ht pt" data-toggle="button">Печать целым куском</button>
+                </div>
+                <small class="">(могут быть добавлены к цене остатки материалов)</small>
+                <div class="row">
+                  <button class="btn btn-primary ht pt"  name="button">Рассчитать</button>
+                </div>
+            </form>
           </div>
         </div>
       </div>
