@@ -13,26 +13,32 @@
   <div class="tab-content">
     <div class="tab-pane active" id="order">
       <div class="table-responsive">
+        <?php $select_h_s = selectHistory_Shoping_For_User($_SESSION['id']);?>
         <table class="table table-striped">
-          <thead >
-            <th class="ant-table">№</th>
-            <th class="ant-table">создан</th>
-            <th class="ant-table">готовность</th>
-            <th class="ant-table">название</th>
-            <th class="ant-table">тираж</th>
-            <th class="ant-table">ком...</th>
-            <th class="ant-table">авто</th>
-            <th class="ant-table">цена</th>
-            <th class="ant-table">дост.</th>
-            <th class="ant-table">статус</th>
-            <th class="ant-table">испр.</th>
-            <th class="ant-table">отм.</th>
-            <th class="ant-table">повтор</th>
-            <th class="ant-table">брак</th>
-            <th class="ant-table">архив</th>
+          <thead>
+            <th align="center">№</th>
+            <th align="center">Создан</th>
+            <th align="center">Готовность</th>
+            <th align="center">Название</th>
+            <th align="center">Тираж</th>
+            <th align="center">Комментарий</th>
+            <th align="center">авто</th>
+            <th align="center">Доставка</th>
+            <th align="center">Статус</th>
+            <th align="center">испр.</th>
+            <th align="center">Отмена</th>
+            <th align="center">Повтор</th>
+            <th align="center">Брак</th>
+            <th align="center">Архив</th>
+            <th align="center">Цена</th>
           </thead>
           <tbody>
-            <tr>
+            <?php
+              for($i=0; $i < count($select_h_s); $i++){
+                include "blocks/table_h_s.php";
+              }
+            ?>
+            <!-- <tr>
               <td class="ant-colomn"><a href="#">125122</a></td>
               <td class="ant-colomn">22.04 <sub>13:45</sub></td>
               <td class="ant-colomn">24.04<sub>Чтв</sub></td>
@@ -48,7 +54,7 @@
               <td class="ant-colomn"><span class="glyphicon glyphicon-repeat"></span></td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-trash"></span></td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-book"></span></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -57,21 +63,21 @@
       <div class="table-responsive">
         <table class="table table-striped">
           <thead >
-            <th class="ant-table">№</th>
-            <th class="ant-table">создан</th>
-            <th class="ant-table">готовность</th>
-            <th class="ant-table">название</th>
-            <th class="ant-table">тираж</th>
-            <th class="ant-table">ком...</th>
-            <th class="ant-table">авто</th>
-            <th class="ant-table">цена</th>
-            <th class="ant-table">дост.</th>
-            <th class="ant-table">статус</th>
-            <th class="ant-table">испр.</th>
-            <th class="ant-table">отм.</th>
-            <th class="ant-table">повтор</th>
-            <th class="ant-table">брак</th>
-            <th class="ant-table">архив</th>
+            <th>№</th>
+            <th>создан</th>
+            <th>готовность</th>
+            <th>название</th>
+            <th>тираж</th>
+            <th>ком...</th>
+            <th>авто</th>
+            <th>цена</th>
+            <th>дост.</th>
+            <th>статус</th>
+            <th>испр.</th>
+            <th>отм.</th>
+            <th>повтор</th>
+            <th>брак</th>
+            <th>архив</th>
           </thead>
           <tbody>
             <tr>

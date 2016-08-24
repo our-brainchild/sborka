@@ -222,4 +222,45 @@ function selectCostItem($id_item, $circulation){
   $result = $mysqli -> query("SELECT `value_cost` FROM `prices` INNER JOIN `cost` ON `prices`.`id_cost`=`cost`.`id_cost` WHERE `prices`.`id_item_type_prices`='$id_item' AND `prices`.`id_circulation_prices`='$circulation'");
   return $result -> fetch_assoc();
 }
+
+
+function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_img,$path_revers_img,$select_folding,
+  $select_creasing,$select_dop_rez,$select_hole,$select_numbering,$select_perforation,
+  $checkbox_rounding,$type_shipping,$place_shipping,$cost,$comment,$id_item_type,$order_status,$name_order,$dop_info,$circulation,$time){
+  global $mysqli;
+  $result = $mysqli -> query("INSERT INTO `history_shopping`
+  ( `id_client_h_s`, `name_i_t_h_s`, `coloration_h_s`,
+    `face_image_h_s`, `reverse_h_s`, `folding_h_s`,
+    `creasing_h_s`, `dop_rez_h_s`, `hole_h_s`,
+    `numbering_h_s`, `perforation_h_s`, `rounding_h_s`,
+    `type_shipping_h_s`, `place_shipping_h_s`, `cost_h_s`,
+    `comments_for_order_h_s`, `id_item_type_h_s`, `order_status_h_s`,
+    `name_order_h_s`, `dop_info_h_s`, `circulation_h_s`,`time_h_s`)
+  VALUES
+  ( '$id_client', '$name_i_t','$options_color',
+    '$path_fase_img','$path_revers_img','$select_folding',
+    '$select_creasing','$select_dop_rez','$select_hole',
+    '$select_numbering','$select_perforation','$checkbox_rounding',
+    '$type_shipping','$place_shipping','$cost',
+    '$comment','$id_item_type','$order_status',
+    '$name_order', '$dop_info', '$circulation','$time')");
+    return $result;
+}
+  function lengthHistory_Shoping(){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT MAX(`id_history_shopping`) FROM `history_shopping` ");
+    return $result -> fetch_assoc();
+  }
+
+  function selectHistory_Shoping_For_User($id){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `id_client_h_s`='$id'");
+    return resultSetToArray($result);
+  }
+
+  function selectHistory_Shoping_All(){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT * FROM `history_shopping`");
+    return resultSetToArray($result);
+  }
 ?>

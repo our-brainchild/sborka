@@ -1,5 +1,4 @@
 <div class="row">
-  <!-- <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 5px;"><?php echo $T_B_Item_Type[$i]['name_item_type'];?></p></div> -->
   <table class="table table-hover">
     <tbody>
       <tr>

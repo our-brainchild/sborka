@@ -208,9 +208,9 @@ tbody tr:hover{
 	font-size: 11px;
 }
 .file {
-		left: 2000px;
-		right: 2000px;
-		position: absolute;
+		/*left: 2000px;
+		right: 2000px;*/
+		/*position: absolute;*/
 		width: 0;
 		height: 0;
 		opacity: 0.01;

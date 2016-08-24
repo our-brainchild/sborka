@@ -5,7 +5,6 @@ echo "<br><br><br><br><br><br>";
 $id_item = $_GET['id_item'];
 $id_print = $_GET['id_print'];
 $T_B_Item_Type = showAllItem($id_item, $id_print);
-//var_dump($result); die();
 ?>
 <div class="container imghelpmaterial">
   <div class="row">
@@ -16,21 +15,6 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
     </ol>
   </div>
   <div class="row">
-    <!-- <div class="col-lg-3 col-md-3">
-      <div class="list-group">
-        <?php
-        $T_B_Print = selectAllPrint();
-        for($i=0; $i<count($T_B_Print); $i++){
-          echo "<a href='#' class='list-group-item'>
-            <div class='my-style-list-group'>
-                <i class='fa fa-angle-right fa-3x'></i>
-            </div>
-              <h4 class='list-group-item-heading'>".$T_B_Print[$i]['name_print']."</h4>
-              <p class='list-group-item-text'>5 дней</p>
-        </a>" ;
-        } ?>
-      </div>
-    </div> -->
       <div class="col-lg-12 col-md-12">
 
            <div class="row">
@@ -86,115 +70,6 @@ $T_B_Item_Type = showAllItem($id_item, $id_print);
               include "blocks/tableItem.php";
             }
             ?>
-
-            <!-- <div class="row">
-              <div>  Евро (210x99) Мелованная Глянцевая 130г/м². Красочность 4+4. Без покрытия. </div>
-              <table>
-                <tbody>
-                  <tr>
-                    <th> Тираж </th>
-                    <th> 1 000 </th>
-                    <th> 2 500 </th>
-                    <th> 5 000 </th>
-                    <th> 10 000 </th>
-                    <th> 20 000 </th>
-                    <th> 50 000 </th>
-                  </tr>
-                  <tr>
-                    <td>Печать за 3-5 дней (руб) </td>
-                    <td>
-                      <a> 950 </a>
-                    </td>
-                    <td>
-                      <a> 2085 </a>
-                    </td>
-                    <td>
-                      <a> 3205 </a>
-                    </td>
-                    <td>
-                      <a> 5340 </a>
-                    </td>
-                    <td>
-                      <a> 10675 </a>
-                    </td>
-                    <td>
-                      <a> 25615 </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div></div>
-              <div>  Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. Без покрытия. </div>
-              <table>
-                <tbody>
-                  <tr>
-                    <th> Тираж </th>
-                    <th> 1 000 </th>
-                    <th> 2 000 </th>
-                    <th> 3 000 </th>
-                    <th> 4 000 </th>
-                    <th> 5 000 </th>
-                    <th> 10 000 </th>
-                  </tr>
-                  <tr>
-                    <td>Печать за 3-5 дней (руб) </td>
-                    <td> <a> 1800 </a> </td>
-                    <td>
-                      <a> 3600 </a>
-                    </td>
-                    <td>
-                      <a> 5395 </a>
-                    </td>
-                    <td>
-                      <a> 7195 </a>
-                    </td>
-                    <td>
-                      <a> 8990 </a>
-                    </td>
-                    <td>
-                      <a> 17980 </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div></div>
-              <div>  Евро (210x99) Картон Двухсторонний 300г/м². Красочность 4+4. лицо Глянец. </div>
-              <table>
-                <tbody>
-                  <tr>
-                    <th> Тираж </th>
-                    <th> 1 000 </th>
-                    <th> 2 000 </th>
-                    <th> 3 000 </th>
-                    <th> 4 000 </th>
-                    <th> 5 000 </th>
-                    <th> 10 000 </th>
-                  </tr>
-                  <tr>
-                    <td>Печать за 3-5 дней (руб) </td>
-                    <td>
-                      <a> 1970 </a>
-                    </td>
-                    <td>
-                      <a> 3935 </a>
-                    </td>
-                    <td>
-                      <a> 5905 </a>
-                    </td>
-                    <td>
-                      <a> 7865 </a>
-                    </td>
-                    <td>
-                      <a> 9835 </a>
-                    </td>
-                    <td>
-                      <a> 19665 </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
-
     </div>
   </div>
 </div>
@@ -206,19 +81,3 @@ echo $result['width_size'];
 require_once "blocks/footer.php";
 require_once "stop.php";
 ?>
-<!-- SELECT `name_item`, `name_item_type`, `name_size`, `height_size`, `width_size`, `type_paper`,`name_paper_texture`,`name_paper_weight`, `name_print`
-FROM
-  `item_type`
-  INNER JOIN
-  `item`
-    ON `item_type`.id_item_item_type = `item`.`id_item`
-  JOIN
-   `size`
-   	ON 	`item_type`.`id_size_type` = `size`.`id_size`
-  JOIN
-  	`type_paper`
-    ON `item_type`.`id_paper_type` = `type_paper`.`id_type_paper`
-  JOIN
-  	`print`
-    ON `item_type`.`id_print_type` = `print`.`id_print`
-  WHERE `item_type`.`id_item_type` = 1 -->

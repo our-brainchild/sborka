@@ -22,14 +22,14 @@
 
       <div style="background-color: #2e4659;"><p style="font-size:16px; color: white; padding-left: 20px;"><?php echo $rounding['name_item_type']; ?></p></div>
 
-        <form class="form" method="post">
+        <form class="form" enctype="multipart/form-data" method="post" action="blocks/registration_order.php">
 
         <div class="row pt">
         <div class="col-lg-3 ">
           <h4 class="ht">Название вашего заказа</h4>
         </div>
         <div class="col-lg-9 ">
-          <input type="text" class="form-control" placeholder="ТуТ" style="max-width: 95%;">
+          <input type="text" name="name_order" class="form-control" placeholder="ТуТ" style="max-width: 95%;">
           <br>
         </div>
         </div>
@@ -45,11 +45,11 @@
               <div class='btn-group' data-toggle='buttons'>
 
                 <label class='btn btn-default'>
-                  <input type='radio' name='options' id='option1' value='2' onchange='modifieColor(this.value)'> Двусторонняя 4+4
+                  <input type='radio' name='options_color' id='option1' value='2' onchange='modifieColor(this.value)'> Двусторонняя 4+4
                 </label>
 
                 <label class='btn btn-default'>
-                  <input type='radio' name='options' id='option3' value='1' onchange='modifieColor(this.value)'> Односторонняя 4+0
+                  <input type='radio' name='options_color' id='option3' value='1' onchange='modifieColor(this.value)'> Односторонняя 4+0
                 </label>
 
               </div>
@@ -67,19 +67,31 @@
 
 
           <div class='col-lg-9'>
-              <p style='padding-top: 10px;'>Перед загрузкой ознакомьтесь с <a href='#' data-toggle='modal' data-target='#modal-1'>требованиями к макетам</a></p>
+              <p style='padding-top: 10px;'>Перед загрузкой ознакомьтесь с <a data-toggle='modal' data-target='#modal-1'>требованиями к макетам</a></p>
 
-              <button class='btn btn-primary' onclick="document.getElementById('file1').click()"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
-              <input type='file' class='file' id='file1'/>
+              <!-- <button class='btn btn-primary' onclick="document.getElementById('file1').click()"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
+              <input type="file" name="file1"  class='file1' id='file1' onchange="alert('hello');"/> -->
+              <div class="file_upload">
+                <button type="button"><i class='fa fa-download'></i>Загрузитть</button>
+                <div>Файл не выбран</div>
+                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
+                <input type="file" name="file_face">
+              </div>
+
               <p>Лицевая сторона</p>
-
               <br/>
               <div id="reverseside">
               <?php
               if($rounding['side_item_type'] == 'twoside'){
-                echo "<button class='btn btn-primary' onclick=\"document.getElementById('file2').click()\"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
-                <input type='file' class='file' id='file2'/>
-                <p>Обратная сторона</p>";
+                // echo "<button class='btn btn-primary' onclick=\"document.getElementById('file2').click()\"><i class='fa fa-download' aria-hidden='true'></i> Загрузить</button>
+                // <input type='file' class='file' id='file2'/>
+                // <p>Обратная сторона</p>";
+                echo "<div class='file_upload2'>
+                        <button type='button'><i class='fa fa-download'></i>Загрузитть</button>
+                        <div>Файл не выбран</div>
+                        <input type='file' name='file_revers'>
+                      </div>
+                      <p>Обратная сторона</p>";
               }
               ?>
             </div>
@@ -105,7 +117,7 @@
                 if(count($folding) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 0)'>";
+                            <select class='form-control' name='select_folding' onchange='modifie(this.value, 0)'>";
                   for($i = 0; $i < count($folding); $i++){
                     echo "<option value=".$folding[$i]['name_folding'].">".$folding[$i]['name_folding']."</option>";
                   }
@@ -119,7 +131,7 @@
                 if(count($dop_rez) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 1)'>";
+                            <select class='form-control' name='select_dop_rez' onchange='modifie(this.value, 1)'>";
                 for($i = 0; $i < count($dop_rez); $i++){
                   echo "<option value=".$dop_rez[$i]['name_dop_rez'].">".$dop_rez[$i]['name_dop_rez']."</option>";
                 }
@@ -133,7 +145,7 @@
                 if(count($perforation) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 2)' >";
+                            <select class='form-control' name='select_perforation' onchange='modifie(this.value, 2)' >";
                 for($i = 0; $i < count($perforation); $i++){
                   echo "<option value=".$i.">".$perforation[$i]['name_perforation']."</option>";
                 }
@@ -147,7 +159,7 @@
                 if(count($numbering) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 3)'>";
+                            <select class='form-control' name='select_numbering' onchange='modifie(this.value, 3)'>";
                 for($i = 0; $i < count($numbering); $i++){
                   echo "<option value=".$i.">".$numbering[$i]['name_numbering']."</option>";
                 }
@@ -161,7 +173,7 @@
                 if(count($hole) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 4)'>";
+                            <select class='form-control' name='select_hole' onchange='modifie(this.value, 4)'>";
                 for($i = 0; $i < count($hole); $i++){
                   echo "<option value=".$hole[$i]['name_hole'].">".$hole[$i]['name_hole']."</option>";
                 }
@@ -175,7 +187,7 @@
                 if(count($creasing) > 0){
                   echo "<tr>
                           <td>
-                            <select class='form-control' onchange='modifie(this.value, 5)'>";
+                            <select class='form-control' name='select_creasing' onchange='modifie(this.value, 5)'>";
                 for($i = 0; $i < count($creasing); $i++){
                   echo "<option value=".$creasing[$i]['name_creasing'].">".$creasing[$i]['name_creasing']."</option>";
                 }
@@ -191,7 +203,7 @@
                           <td colspan='2'>
                             <div class='checkbox'>
                               <label>
-                                <input type='checkbox' onchange='modifie(this.value, 6)'>  Закругление углов <span class='dashed'><b>+150 руб.</b></span> за 1000 шт.
+                                <input type='checkbox' name='checkbox_rounding' onchange='modifie(this.value, 6)'>  Закругление углов <span class='dashed'><b>+150 руб.</b></span> за 1000 шт.
                               </label>
                             </div>
                           </td>
@@ -211,28 +223,21 @@
           <div class="col-lg-9">
             <div class="radio">
               <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="true">
+                <input type="radio" name="type_shipping" id="optionsRadios1" value="0" checked="true">
                 Самовывоз (<span class="dashed"><b>Крым, г. Севастополь, , ул. Адмирала Октябрьского 16, время работы с 10:00 до 18:00 (сб., вс. - выходной)</b></span>)
               </label>
             </div>
 
             <div class="radio">
               <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                <input type="radio" name="type_shipping" id="optionsRadios2" value="1">
                 Быстрая почта" (115 руб., за счёт клиента)
               </label>
             </div>
 
-            <!-- <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                Доставка по г. Симферополю (бесплатно)
-              </label>
-            </div> -->
-
             <div class="radio">
               <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                <input type="radio" name="type_shipping" id="optionsRadios4" value="2">
                 Рейсовый автобус
               </label>
             </div>
@@ -244,7 +249,7 @@
                   <input type="text" class="form-control ht" name="delivery[phone]" placeholder="Телефон" value="<?php echo $user['main_phone_number_client'];?>">
                 </div>
                 <div class="col-1-3 14 pr-s">
-                  <select class="form-control" style="max-width: 280px;" >
+                  <select class="form-control" style="max-width: 280px;" name="city_shipping" >
                     <option value="Алушта">Алушта</option>
                     <option value="Армянск">Армянск</option>
                     <option value="Бахчисарай">Бахчисарай</option>
@@ -273,13 +278,13 @@
                 </div>
 
                 <div class="col-2-3 14">
-                  <select class="form-control" style="max-width: 280px;">
+                  <select class="form-control" style="max-width: 280px;" name="steet_shipping">
                     <option value="ул. Ленина 116-г (Отделение №1)">ул. Ленина 116-г (Отделение №1)</option>
                   </select>
                 </div>
 
                 <div class="col-1-1 14">
-                    <textarea class="form-control" style="max-width: 95%;" name="delivery[descriion]" placeholder="Дополнительная информация"></textarea>
+                    <textarea class="form-control" style="max-width: 95%;" name="delivery[descriion]" placeholder="Дополнительная информация" name="dop_information"></textarea>
                 </div>
 
               </div>
@@ -292,7 +297,7 @@
             <h4 class="ht">Комментарии к заказу</h4>
           </div>
           <div class="col-lg-9 ">
-            <textarea class="form-control" rows="3" style="max-width: 95%;"></textarea>
+            <textarea class="form-control" rows="3" style="max-width: 95%;" name="comments"></textarea>
           </div>
         </div>
 
@@ -300,8 +305,6 @@
           <div class="col-lg-3 ">
           </div>
           <div class="col-lg-9 ">
-            <!-- <p>Вес партии: 2.70 кг.</p>
-            <p>Размер посылки: 99х210х90 мм.</p> -->
             <?php $cost = selectCostItem($id_item,$circulation); ?>
             <div class="row">
               <div class="col-md-6 ">
@@ -313,10 +316,86 @@
             </div>
           </div>
         </div>
+        <?php
+        $_SESSION['creasing'] = $size_circulation;
+        $_SESSION['prices'] = $cost['value_cost'];
+        $_SESSION['id_item_type'] = $_GET['id_item'];
+        $_SESSION['name_item'] = $rounding['name_item_type'];
+        ?>
         </form>
       </div>
     </div>
   </div>
+  <style>
+  .file_upload, .file_upload2{
+      position: relative;
+      overflow: hidden;
+      /*font-size: 1em;        /* example */*/
+      height: 2em;           /* example */
+      line-height: 2em       /* the same as height */
+    }
+    .file_upload > button, .file_upload > div, .file_upload2 > button, ..file_upload2 > div{
+      cursor: pointer
+    }
+    .file_upload > button, .file_upload2 > button{
+      /*float: right;*/
+      width: 8em;            /* example */
+      height: 100%
+    }
+    .file_upload > div, .file_upload2 > div{
+      display: none;
+      padding-left: 1em;      /* example */
+      padding-top: 0.2em;
+    }
+    @media only screen and ( max-width: 500px ){  /* example */
+      .file_upload > div, .file_upload2 > div {
+          display: none
+      }
+      .file_upload > button, .file_upload2 > button{
+          width: 100%
+      }
+    }
+    .file_upload input[type=file], .file_upload2 input[type=file]{
+      position: absolute;
+      top: 0;
+      visibility: hidden
+    }
+
+    /* Making it beautiful */
+
+    .file_upload, .file_upload2{
+      /*border: 1px solid #ccc;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: box-shadow 0.1s linear*/
+    }
+    .file_upload.focus, .file_upload2.focus{
+      /*box-shadow: 0 0 5px rgba(0,30,255,0.4)*/
+    }
+    .file_upload > button, .file_upload2 > button{
+      background: #2e4659;
+      transition: background 0.2s;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+      border-radius: 2px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+      color: #fff;
+      text-shadow: #2e4659 0 -1px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 10em;
+    }
+    .file_upload:hover > button, .file_upload2:hover > button {
+      background: #2e4659;
+      text-shadow: #2e4659 0 -1px 0;
+    }
+    .file_upload:active > button, .file_upload2:active > button {
+      background: #2e4659;
+      box-shadow: 0 0 3px rgba(0,0,0,0.3) inset;
+    }
+  </style>
+
   <script type="text/javascript">
     "use strict";
     document.body.style.overflowX='hidden';
@@ -366,5 +445,97 @@
 <?php
   echo "<br><br>";
   require_once "blocks/footer.php";
+  ?>
+  <script type="text/javascript">
+    $(function(){
+      var wrapper = $( ".file_upload" ),
+          inp = wrapper.find( "input" ),
+          btn = wrapper.find( "button" ),
+          lbl = wrapper.find( "div" );
+
+      // Crutches for the :focus style:
+      btn.focus(function(){
+          wrapper.addClass( "focus" );
+      }).blur(function(){
+          wrapper.removeClass( "focus" );
+      });
+
+      // Yep, it works!
+      btn.add( lbl ).click(function(){
+          inp.click();
+      });
+
+      var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
+
+      inp.change(function(){
+
+          var file_name;
+          if( file_api && inp[ 0 ].files[ 0 ] )
+              file_name = inp[ 0 ].files[ 0 ].name;
+          else
+              file_name = inp.val().replace( "C:\\fakepath\\", '' );
+          if( ! file_name.length )
+              return;
+
+          if( lbl.is( ":visible" ) ){
+              lbl.text( file_name );
+            //  btn.text( "Выбрать" );
+          }else
+              btn.text( file_name );
+      }).change();
+
+  });
+  $( window ).resize(function(){
+      $( ".file_upload input" ).triggerHandler( "change" );
+  });
+
+
+
+// file_upload2
+
+$(function(){
+  var wrapper = $( ".file_upload2" ),
+      inp = wrapper.find( "input" ),
+      btn = wrapper.find( "button" ),
+      lbl = wrapper.find( "div" );
+
+  // Crutches for the :focus style:
+  btn.focus(function(){
+      wrapper.addClass( "focus" );
+  }).blur(function(){
+      wrapper.removeClass( "focus" );
+  });
+
+  // Yep, it works!
+  btn.add( lbl ).click(function(){
+      inp.click();
+  });
+
+  var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
+
+  inp.change(function(){
+
+      var file_name;
+      if( file_api && inp[ 0 ].files[ 0 ] )
+          file_name = inp[ 0 ].files[ 0 ].name;
+      else
+          file_name = inp.val().replace( "C:\\fakepath\\", '' );
+      if( ! file_name.length )
+          return;
+
+      if( lbl.is( ":visible" ) ){
+          lbl.text( file_name );
+        //  btn.text( "Выбрать" );
+      }else
+          btn.text( file_name );
+  }).change();
+
+});
+$( window ).resize(function(){
+  $( ".file_upload input" ).triggerHandler( "change" );
+});
+
+  </script>
+  <?php
   require_once "stop.php";
 ?>
