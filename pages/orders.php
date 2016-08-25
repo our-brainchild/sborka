@@ -5,7 +5,7 @@
 ?>
 <br>
 <br>
-<div class="container">
+<div class="container-fluid">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#order" data-toggle="tab">Заказы</a></li>
     <li><a href="#archive" data-toggle="tab">Архив</a></li>
@@ -14,22 +14,24 @@
     <div class="tab-pane active" id="order">
       <div class="table-responsive">
         <?php $select_h_s = selectHistory_Shoping_For_User($_SESSION['id']);?>
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
             <th align="center">№</th>
+            <th align="center">ID в системе</th>
+            <th align="center">Название заказа</th>
             <th align="center">Создан</th>
             <th align="center">Готовность</th>
-            <th align="center">Название</th>
-            <th align="center">Тираж</th>
+            <th align="center">Название товара</th>
             <th align="center">Комментарий</th>
-            <th align="center">авто</th>
-            <th align="center">Доставка</th>
-            <th align="center">Статус</th>
-            <th align="center">испр.</th>
+            <th align="center">Доп. инф.</th>
+            <th align="center">Тип доставки</th>
+            <th align="center">Статус заказа</th>
+            <th align="center">Правки</th>
             <th align="center">Отмена</th>
             <th align="center">Повтор</th>
             <th align="center">Брак</th>
             <th align="center">Архив</th>
+            <th align="center">Тираж</th>
             <th align="center">Цена</th>
           </thead>
           <tbody>
