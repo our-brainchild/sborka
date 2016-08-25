@@ -141,7 +141,7 @@
         </div>
         <div class="modal-body">
 
-          <form class="form-horizontal" role="form" method="post">
+          <form class="form-horizontal" role="form" method="post" id="form" onsubmit="return checkForm(document.getElementById('form'));">
 
             <?php
             if (!empty($_POST["button_reg"])) {
@@ -162,8 +162,6 @@
                 if (!$success) $alert="Ошибка при регистрации пользователя!";
                   else $alert="Вы успешно зарегистрировались!";
                 include "block/alert.php";
-
-
             }
             ?>
 
@@ -171,28 +169,28 @@
               <h4>Регистрационные данные</h4>
             </div>
             <hr>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputLogin" class="col-sm-2 control-label">Логин</label>
               <div class="col-sm-10">
-              <input type="login" name="login" class="form-control inputboxs" id="inputLogin" placeholder="Логин">
+                <input type="login" name="login" class="form-control inputboxs" id="inputLogin" placeholder="Логин">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputEmail" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-              <input type="email" name="email" class="form-control inputboxs" id="inputEmail" placeholder="Email">
+                <input type="email" name="email" class="form-control inputboxs" id="inputEmail" placeholder="Email">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputPassword1" class="col-sm-2 control-label">Пароль</label>
               <div class="col-sm-10">
-              <input type="password" name="password_1" class="form-control inputboxs" id="inputPassword1" placeholder="Пароль">
+                <input type="password" name="password_1" class="form-control inputboxs" id="inputPassword1" placeholder="Пароль">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputPassword2" class="col-sm-2 control-label">Повторите пароль</label>
               <div class="col-sm-10">
-              <input type="password" name="password_2" class="form-control inputboxs" id="inputPassword2" placeholder="Пароль">
+                <input type="password" name="password_2" class="form-control inputboxs" id="inputPassword2" placeholder="Пароль">
               </div>
             </div>
             <hr>
@@ -200,28 +198,28 @@
               <h4>Контактная информация</h4>
             </div>
             <hr>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputName" class="col-sm-2 control-label">Имя</label>
               <div class="col-sm-10">
-              <input type="text" name="name" class="form-control inputboxs" id="inputName" placeholder="Имя">
+                <input type="text" name="name" class="form-control inputboxs" id="inputName" placeholder="Имя">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputSurname" class="col-sm-2 control-label">Фамилия</label>
               <div class="col-sm-10">
-              <input type="text" name="surname" class="form-control inputboxs" id="inputSurname" placeholder="Фамилия">
+                <input type="text" name="surname" class="form-control inputboxs" id="inputSurname" placeholder="Фамилия">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputAgent" class="col-sm-2 control-label">Организация</label>
               <div class="col-sm-10">
-              <input type="text" name="agent" class="form-control inputboxs" id="inputAgent" placeholder="Организация">
+                <input type="text" name="agent" class="form-control inputboxs" id="inputAgent" placeholder="Организация">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="inputTelephone" class="col-sm-2 control-label">Телефон</label>
               <div class="col-sm-10">
-              <input type="text" name="maintelephone" class="form-control inputboxs" id="inputTelephone" placeholder="Телефон">
+                <input type="text" name="maintelephone" class="form-control inputboxs" id="inputTelephone" placeholder="Телефон">
               </div>
             </div>
 
@@ -236,12 +234,129 @@
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-              <input type="submit" name="button_reg" class="btn btn-success" value="Зарегистрироваться">
-              <button  type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Отмена</button>
+                <input type="button" name="button_reg" class="btn btn-success" onclick="checkForm(document.getElementById('form'));"value="Зарегистрироваться">
+                <button  type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Отмена</button>
+                <input type="submit" id="start" style="display:none;">
               </div>
             </div>
             </form>
+            <script>
+                function checkForm(form){
+                  var password1 = form.password_1.value;
+                  var password2 = form.password_2.value;
+                  var name = form.name.value;
+                  var lastname = form.surname.value;
+                  var phone = form.maintelephone.value;
+                  var email = form.email.value;
+                  var flag =  true;
+                  var er;
 
+                  if (!(/\w{5,}/.test(password1))){
+                    er = "Не корректно введен пароль (слишком короткий пароль)";
+                    checkError('inputPassword1',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputPassword1');
+                  }
+                  if (!(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z]))/.test(password1))){
+                    er = "Не корректно введен пароль (нет строчных или прописных букв)"
+                    checkError('inputPassword1',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputPassword1');
+                  }
+                  if (password1 !== password2) {
+                    er = "Пароли не совпадают";
+                    checkError('inputPassword2',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputPassword2');
+                  }
+                  if ((/[0-9]+|\s+|\0/.test(name)) ||(name == "")){
+
+                    er = "Не корректно введено имя";
+                    checkError('inputName',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputName');
+                  }
+                  if( (/[0-9]+|\s+/.test(lastname)) || (lastname == "")){
+                    er = "Не корректно введена фамилия";
+                    checkError('inputSurname',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputSurname');
+                  }
+                  if (!(/^\+?\d{11,12}/.test(phone))){
+                    er = "Не корректно заполнен номер";
+                    checkError('inputTelephone',er);
+                    flag = false;
+                  } else {
+                    checkValide('inputTelephone');
+                  }
+                  if (!(/\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}/.test(email))){
+                    er = "Не корректно заполнен email";
+                    checkError('inputEmail',er);
+                    flag = false;
+                  } else {
+                   checkValide('inputEmail');
+                  }
+
+
+                  if (flag) {
+                    return flag;
+                  } //else {}
+                }
+
+                function checkError(a, er) {
+                  var add = document.getElementById(a);
+
+                  var ni = document.createElement('i');
+                  ni.id = a + '1';
+                  ni.className = 'glyphicon glyphicon-remove form-control-feedback';
+
+                  var div = document.createElement('div');
+                  div.className = "alert alert-danger fade in";
+                  div.id = a + '2';
+
+                  var button = document.createElement('button');
+                  //button.type = 'button';
+                  button.id = a + '3';
+                  button.type = 'button';
+                  button.dataset.dismiss = 'true';
+                  button.setAttribute("aria-hidden","true");
+                  button.innerHTML = '×';
+                  button.className = 'close';
+
+                  var nii = document.getElementById(a + '1');
+                  var divv = document.getElementById(a + '2');
+                  var buttonn = document.getElementById(a + '3');
+                  div.innerHTML = er;
+                  add.parentNode.parentNode.classList.remove('has-success');
+                  add.parentNode.parentNode.classList.add('has-error');
+                  if (nii != null){
+                    nii.parentNode.removeChild(nii);
+                  }
+                  $('.alert').alert('close');
+                  add.parentNode.insertBefore(div, null);
+                  div.insertBefore(button,div);
+                  add.parentNode.insertBefore(ni, null);
+                }
+                function checkValide(a) {
+                  var add = document.getElementById(a);
+                  var ni = document.createElement('i');
+                  ni.id = a + '1';
+                  var nii = document.getElementById(a + '1');
+
+                  add.parentNode.parentNode.classList.remove('has-error');
+                  add.parentNode.parentNode.classList.add('has-success');
+                  if (nii != null){
+                    nii.parentNode.removeChild(nii);
+                  }
+                  ni.className = 'glyphicon glyphicon-ok form-control-feedback';
+                  add.parentNode.insertBefore(ni, null);
+                }
+            </script>
         </div>
       </div>
     </div>
