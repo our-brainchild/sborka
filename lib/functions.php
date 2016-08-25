@@ -226,7 +226,7 @@ function selectCostItem($id_item, $circulation){
 
 function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_img,$path_revers_img,$select_folding,
   $select_creasing,$select_dop_rez,$select_hole,$select_numbering,$select_perforation,
-  $checkbox_rounding,$type_shipping,$place_shipping,$cost,$comment,$id_item_type,$order_status,$name_order,$dop_info,$circulation,$time){
+  $checkbox_rounding,$type_shipping,$place_shipping,$cost,$comment,$id_item_type,$order_status,$name_order,$dop_info,$circulation,$time,$type_print_h_s){
   global $mysqli;
   $result = $mysqli -> query("INSERT INTO `history_shopping`
   ( `id_client_h_s`, `name_i_t_h_s`, `coloration_h_s`,
@@ -235,7 +235,7 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     `numbering_h_s`, `perforation_h_s`, `rounding_h_s`,
     `type_shipping_h_s`, `place_shipping_h_s`, `cost_h_s`,
     `comments_for_order_h_s`, `id_item_type_h_s`, `order_status_h_s`,
-    `name_order_h_s`, `dop_info_h_s`, `circulation_h_s`,`time_h_s`)
+    `name_order_h_s`, `dop_info_h_s`, `circulation_h_s`,`time_h_s`,`type_print_h_s`)
   VALUES
   ( '$id_client', '$name_i_t','$options_color',
     '$path_fase_img','$path_revers_img','$select_folding',
@@ -243,7 +243,7 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     '$select_numbering','$select_perforation','$checkbox_rounding',
     '$type_shipping','$place_shipping','$cost',
     '$comment','$id_item_type','$order_status',
-    '$name_order', '$dop_info', '$circulation','$time')");
+    '$name_order', '$dop_info', '$circulation','$time','$type_print_h_s')");
     return $result;
 }
   function lengthHistory_Shoping(){
@@ -252,9 +252,9 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     return $result -> fetch_assoc();
   }
 
-  function selectHistory_Shoping_For_User($id){
+  function selectHistory_Shoping_For_User($id,$arhive){
     global $mysqli;
-    $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `id_client_h_s`='$id'");
+    $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `id_client_h_s`='$id' AND `arhive_h_s`='$arhive'");
     return resultSetToArray($result);
   }
 
@@ -262,5 +262,31 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     global $mysqli;
     $result = $mysqli -> query("SELECT * FROM `history_shopping`");
     return resultSetToArray($result);
+  }
+  function selectType_Print_For_item($id_item){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT `name_print` FROM `item_type` INNER JOIN `print` ON `item_type`.`id_print_type`=`print`.`id_print` WHERE `item_type`.`id_item_type`='$id_item'");
+    return $result -> fetch_assoc();
+  }
+  function deletItem_For_Shopping_History($id_history_shopping,$id_client){
+    global $mysqli;
+    $result = $mysqli -> query("DELETE FROM `history_shopping` WHERE `id_history_shopping`='$id_history_shopping' AND `id_client_h_s`='$id_client'");
+    return $result;
+  }
+  function moveItem_For_Shopping_History_to_archive($id_history_shopping,$id_client){
+    global $mysqli;
+    $result = $mysqli -> query("UPDATE `history_shopping` SET `arhive_h_s`='1' WHERE `id_history_shopping`='$id_history_shopping' AND `id_client_h_s`='$id_client'");
+    return $result;
+  }
+  function selectH_S_ID($id,$id_history_shopping){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `id_client_h_s`='$id' AND `id_history_shopping`='$id_history_shopping'");
+    return $result -> fetch_assoc();
+  }
+
+  function updateItem_For_Shoping_History($dop_info,$comments,$type_shipping,$place_shipping,$id_h_s,$id_client){
+    global $mysqli;
+    $result = $mysqli -> query("UPDATE `history_shopping` SET `dop_info_h_s`='$dop_info', `comments_for_order_h_s`='$comments', `type_shipping_h_s`='$type_shipping', `place_shipping_h_s`='$place_shipping' WHERE `id_history_shopping`='$id_h_s' AND `id_client_h_s`='$id_client'");
+    return $result;
   }
 ?>

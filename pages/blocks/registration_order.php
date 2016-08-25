@@ -27,10 +27,10 @@
 // +
 // ((0.5*$_POST['select_creasing'])*$size_circulation)+$price);
 //
-
+// die();
   $cost = ((150*$rounding)*($size_circulation/1000))
   +
-  (($_POST['dop_rez']*50)*($size_circulation/1000))
+  (($_POST['select_dop_rez']*50)*($size_circulation/1000))
   +
   (($_POST['select_hole']*200)*($size_circulation/1000))
   +
@@ -52,14 +52,16 @@
     $path_f_1 = -1;
   }
   if($s_f_2){
-    $path_f_2 = "public/images/".$length_h_s."_1.png";
+    $path_f_2 = "public/images/".$length_h_s."_2.png";
   }else{
     $path_f_2 = -1;
   }
+  $type_print = selectType_Print_For_item($_SESSION['id_item_type']);
   $example = date ("H:m:s \m \i\s \m\o\n\t\h");
   $succes = insertHistory_Shopping($_SESSION['id'],$_SESSION['name_item'],$_POST['options_color'],$path_f_1,$path_f_2,$_POST['select_folding'],
   $_POST['select_creasing'],$_POST['select_dop_rez'],$_POST['select_hole'],$_POST['select_numbering'],$_POST['select_perforation'],
-  $rounding,$_POST['type_shipping'],$_POST['city_shipping']." ".$_POST['steet_shipping'],$cost,$_POST['comments'],$_SESSION['id_item_type'],0,$_POST['name_order'],$_POST['dop_information'],$size_circulation,date("Y-m-d H:i:s"));
+  $rounding,$_POST['type_shipping'],$_POST['city_shipping']." ".$_POST['steet_shipping'],$cost,$_POST['comments'],
+  $_SESSION['id_item_type'],1,$_POST['name_order'],$_POST['dop_information'],$size_circulation,date("Y-m-d H:i:s"),$type_print['name_print']);
   unset($_SESSION['id_item_type']);
   unset($_SESSION['prices']);
   unset($_SESSION['creasing']);

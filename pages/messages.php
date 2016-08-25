@@ -15,14 +15,14 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
-          <td valign="top" style="padding:5px 10px 0 0;">
+          <!-- <td valign="top" style="padding:5px 10px 0 0;">
             <p style="font-weight:bold;"><a href="?id=37" class="dashed">Все&nbsp;сообщения</a></p>
             <p><a href="?id=37&amp;dep=1" class="dashed">Уведомления</a></p>
             <p><a href="?id=37&amp;dep=4" class="dashed">Препресс</a></p>
             <p><a href="?id=37&amp;dep=3" class="dashed">Бухгалтерия</a></p>
             <p><a href="?id=37&amp;dep=2" class="dashed">Логистика</a></p>
             <p><a href="?id=37&amp;dep=5" class="dashed">Склад</a></p>
-          </td>
+          </td> -->
           <td valign="top">
             <form action="" method="post" id="messagi">
               <p>

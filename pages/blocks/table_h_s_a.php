@@ -5,7 +5,7 @@
   <td align="center"><?php echo $select_h_s[$i]['time_h_s'];?></td> <!-- Время создания -->
   <td align="center"><?php echo $select_h_s[$i]['time_h_s'];?></td> <!-- Время Готовности -->
   <td align="center">
-    <a  data-toggle="modal" data-target=".<?php echo "all_info_".$i; ?>"><i class="fa fa-expand fa-2x" style="cursor:pointer;" data-toggle="tooltip" data-placement="top" title="Нажми на меня:)"> </i></a>
+    <a  data-toggle="modal" data-target=".<?php echo "all_info_".$i; ?>"><i class="fa fa-expand fa-2x" style="cursor:pointer;"> </i></a>
 
     <div class="modal fade <?php echo "all_info_".$i; ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-lg" role="document">
@@ -49,29 +49,6 @@
                   <dd><?php echo $select_h_s[$i]['circulation_h_s'];?></dd>
                   <dt>Цена:</dt>
                   <dd><?php echo $select_h_s[$i]['cost_h_s'];?></dd>
-                  <dt>Лицевая сторона:</dt>
-                  <dd>
-                  <?php
-                    if($select_h_s[$i]['face_image_h_s']== -1){
-                      echo "Нет изображения";
-                    }else{
-                      echo "<img src=\"../".$select_h_s[$i]['face_image_h_s']."\" class=\"img-responsive\" alt=\"Сломалось:((\">";
-                      echo "<a download href='../".$select_h_s[$i]['face_image_h_s']."' class=\"btn btn-primary\">Скачать</a>";
-                    }
-                  ?>
-                  </dd>
-                  <br/>
-                  <dt>Обратная сторона:</dt>
-                  <dd>
-                  <?php
-                    if($select_h_s[$i]['face_image_h_s']== -1){
-                      echo "Нет изображения";
-                    }else{
-                      echo "<img src=\"../".$select_h_s[$i]['reverse_h_s']."\" class=\"img-responsive\" alt=\"Сломалось:((\">";
-                      echo "<a download href='../".$select_h_s[$i]['reverse_h_s']."' class=\"btn btn-primary\">Скачать</a>";
-                    }
-                  ?>
-                 </dd>
                 </dl>
               </div>
             </div>
@@ -176,17 +153,11 @@
   <td align="center"><?php echo $select_h_s[$i]['cost_h_s']?></td> <!-- Цена -->
   <td align="center">
     <div class="btn-group">
-      <!-- <a class="btn btn-default" data-id="<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-action="edit" href="edit_order.php?id_h_s=<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-toggle="tooltip" data-placement="top" title="Редактировать">
-        <i class="fa fa-pencil-square-o fa-lg fa-fw"></i>
-      </a> -->
       <a class="btn btn-danger" data-id="<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-action="cancelOrder" onclick="return confirmDelete();" href="/function/orders/trash.php?id_h_s=<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-toggle="tooltip" data-placement="top" title="Удалить">
         <i class="fa fa-trash-o fa-lg fa-fw"></i>
       </a>
       <a class="btn btn-success" data-id="<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-action="reorder" onclick="return confirmReload();" href="/function/orders/reorder.php?id_h_s=<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-toggle="tooltip" data-placement="top" title="Повтор заказа">
         <i class="fa fa-refresh fa-lg fa-fw"></i>
-      </a>
-      <a class="btn btn-info" data-id="<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-action="move_to_archiv" onclick="return confirmMove_to_archive();" href="/function/orders/archive.php?id_h_s=<?php echo $select_h_s[$i]['id_history_shopping'];?>" data-toggle="tooltip" data-placement="top" title="Отправить в архив">
-        <i class="fa fa-archive fa-lg fa-fw"></i>
       </a>
     </div>
   </td>

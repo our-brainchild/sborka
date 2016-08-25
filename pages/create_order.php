@@ -284,7 +284,7 @@
                 </div>
 
                 <div class="col-1-1 14">
-                    <textarea class="form-control" style="max-width: 95%;" name="delivery[descriion]" placeholder="Дополнительная информация" name="dop_information"></textarea>
+                    <textarea class="form-control" style="max-width: 95%;" placeholder="Дополнительная информация" name="dop_information"></textarea>
                 </div>
 
               </div>
@@ -321,6 +321,7 @@
         $_SESSION['prices'] = $cost['value_cost'];
         $_SESSION['id_item_type'] = $_GET['id_item'];
         $_SESSION['name_item'] = $rounding['name_item_type'];
+        $_SESSION['type_print'];
         ?>
         </form>
       </div>

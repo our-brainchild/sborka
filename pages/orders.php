@@ -13,7 +13,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="order">
       <div class="table-responsive">
-        <?php $select_h_s = selectHistory_Shoping_For_User($_SESSION['id']);?>
+        <?php $select_h_s = selectHistory_Shoping_For_User($_SESSION['id'],0);?>
         <table class="table table-hover">
           <thead>
             <th align="center">№</th>
@@ -21,18 +21,20 @@
             <th align="center">Название заказа</th>
             <th align="center">Создан</th>
             <th align="center">Готовность</th>
-            <th align="center">Название товара</th>
+            <th align="center">Вся информация</th>
+            <!-- <th align="center">Название товара</th>
             <th align="center">Комментарий</th>
-            <th align="center">Доп. инф.</th>
+            <th align="center">Доп. инф.</th> -->
             <th align="center">Тип доставки</th>
             <th align="center">Статус заказа</th>
-            <th align="center">Правки</th>
+            <!-- <th align="center">Правки</th>
             <th align="center">Отмена</th>
             <th align="center">Повтор</th>
             <th align="center">Брак</th>
-            <th align="center">Архив</th>
+            <th align="center">Архив</th>-->
             <th align="center">Тираж</th>
             <th align="center">Цена</th>
+            <th></th>
           </thead>
           <tbody>
             <?php
@@ -64,25 +66,34 @@
     <div class="tab-pane" id="archive">
       <div class="table-responsive">
         <table class="table table-striped">
-          <thead >
-            <th>№</th>
-            <th>создан</th>
-            <th>готовность</th>
-            <th>название</th>
-            <th>тираж</th>
-            <th>ком...</th>
-            <th>авто</th>
-            <th>цена</th>
-            <th>дост.</th>
-            <th>статус</th>
-            <th>испр.</th>
-            <th>отм.</th>
-            <th>повтор</th>
-            <th>брак</th>
-            <th>архив</th>
+          <thead>
+            <th align="center">№</th>
+            <th align="center">ID в системе</th>
+            <th align="center">Название заказа</th>
+            <th align="center">Создан</th>
+            <th align="center">Готовность</th>
+            <th align="center">Вся информация</th>
+            <!-- <th align="center">Название товара</th>
+            <th align="center">Комментарий</th>
+            <th align="center">Доп. инф.</th> -->
+            <th align="center">Тип доставки</th>
+            <th align="center">Статус заказа</th>
+              <!-- <th align="center">Правки</th>
+              <th align="center">Отмена</th>
+              <th align="center">Повтор</th>
+              <th align="center">Брак</th>
+              <th align="center">Архив</th> -->
+            <th align="center">Тираж</th>
+            <th align="center">Цена</th>
           </thead>
+          <?php $select_h_s = selectHistory_Shoping_For_User($_SESSION['id'],1);?>
           <tbody>
-            <tr>
+            <?php
+              for($i=0; $i < count($select_h_s); $i++){
+                include "blocks/table_h_s_a.php";
+              }
+            ?>
+            <!-- <tr>
               <td class="ant-colomn"><a href="#">186458</a></td>
               <td class="ant-colomn">08.10 <sub>09:29</sub></td>
               <td class="ant-colomn">15.10<sub>Срд</sub></td>
@@ -98,7 +109,7 @@
               <td class="ant-colomn"><span class="glyphicon glyphicon-repeat"></span></td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-trash"></span></td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-book"></span></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -112,7 +123,37 @@
   })
 </script>
 -->
+<script type="text/javascript">
+  function confirmDelete(){
+    if (confirm("Вы хотите удалить заказ?")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function confirmReload(){
+    if (confirm("Вы хотите повторить заказ?")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function confirmMove_to_archive(){
+    if (confirm("Вы переместить заказ в архив?")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>
 <?php
   require_once "blocks/footer.php";
+  ?>
+  <script type="text/javascript">
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  </script>
+  <?php
   require_once "stop.php";
  ?>
