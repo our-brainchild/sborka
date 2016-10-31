@@ -252,15 +252,21 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     return $result -> fetch_assoc();
   }
 
+  function lengthHistory_Pay(){
+    global $mysqli;
+    $result = $mysqli -> query("SELECT MAX(`id_pay`) FROM `history_pay` ");
+    return $result -> fetch_assoc();
+  }
+
   function selectHistory_Shoping_For_User($id,$arhive){
     global $mysqli;
     $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `id_client_h_s`='$id' AND `arhive_h_s`='$arhive'");
     return resultSetToArray($result);
   }
 
-  function selectHistory_Shoping_All(){
+  function selectHistory_Shoping_All($arhive){
     global $mysqli;
-    $result = $mysqli -> query("SELECT * FROM `history_shopping`");
+    $result = $mysqli -> query("SELECT * FROM `history_shopping` WHERE `arhive_h_s`='$arhive'");
     return resultSetToArray($result);
   }
   function selectType_Print_For_item($id_item){
@@ -289,4 +295,23 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
     $result = $mysqli -> query("UPDATE `history_shopping` SET `dop_info_h_s`='$dop_info', `comments_for_order_h_s`='$comments', `type_shipping_h_s`='$type_shipping', `place_shipping_h_s`='$place_shipping' WHERE `id_history_shopping`='$id_h_s' AND `id_client_h_s`='$id_client'");
     return $result;
   }
+
+
+  function add_pay($id_user, $type_pay, $who_pay, $sum, $description, $img_pay){
+    global $mysqli;
+    $success = $mysqli->query("INSERT INTO `history_pay`(`id_client`, `type_pay`, `who_pay`, `sum`, `description`, `img_pay`) VALUES ('$id_user', '$type_pay', '$who_pay', '$sum', '$description', '$img_pay')");
+    return $success;
+   }
+
+   function selectHistory_Pay($id_user){
+     global $mysqli;
+     $result = $mysqli -> query("SELECT * FROM `history_pay` WHERE `id_client`='$id_user'");
+     return resultSetToArray($result);
+   }
+   function dont_Show_Pay_User($id_h_pay){
+       global $mysqli;
+       $one = 1;
+       $success = $mysqli->query("UPDATE `history_pay` SET `no_show_user` = '$one' WHERE `id_pay`='$id_h_pay' AND `confirmation_pay`='$one'");
+       return $success;
+   }
 ?>

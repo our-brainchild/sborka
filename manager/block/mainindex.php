@@ -31,13 +31,15 @@
   <div class="row">
     <div class="btnpromo">
 
-      <div class="col-lg-6">
-        <button class="btn btn-success btn-lg navbar-right" type="button" data-toggle="modal" data-target="#Modal-Login">Войти</button>
+      <div class="col-lg-12">
+        <center>
+          <button class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#Modal-Login">Войти</button>
+        </center>
       </div>
 
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#Modal-Registration">Стать дилером</button>
-      </div>
+      </div> -->
 
     </div>
   </div>
@@ -88,12 +90,13 @@
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" method="POST" action="../block/auth.php">
+        <form class="form-horizontal" role="form" method="POST" action="block/auth.php">
           <?php
 						if($_SESSION["error_auth"]){
 							unset($_SESSION["error_auth"]);
 							$alert="Неверный e-mail и/или пароль:";
 							include "block/alert.php";
+
 						}
 						?>
           <div class="form-group">
@@ -131,7 +134,7 @@
 </div>
 <!--//Modal-Login-->
 
-<!--Modal-Register-->
+<!-- Modal-Register
   <div class="modal fade" id="Modal-Registration" tabindex="-1" role="dialog" aria-labelledby="Modal-Registration" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -144,27 +147,27 @@
           <form class="form-horizontal" role="form" method="post">
 
             <?php
-            if (!empty($_POST["button_reg"])) {
-                $email=htmlspecialchars($_POST["email"]);
-                $login=htmlspecialchars($_POST["login"]);
-                $name=htmlspecialchars($_POST["name"]);
-                $surname=htmlspecialchars($_POST["surname"]);
-                $agent=htmlspecialchars($_POST["agent"]);
-                //$city=htmlspecialchars($_POST["city"]);
-                $maintelephone=htmlspecialchars($_POST["maintelephone"]);
-                $password_1=htmlspecialchars($_POST["password_1"]);
-                $password_2=htmlspecialchars($_POST["password_2"]);
-                $agency=htmlspecialchars($_POST["agency"]);
-                if (strlen($email)<3) $success=false;
-                  elseif (strlen($password_1) <3) $success=false;
-                  elseif ($password_1 != $password_2) $success=false;
-                  else $success=pushUser($email,$login,md5($password_1),$name,$surname,$maintelephone,$agent);
-                if (!$success) $alert="Ошибка при регистрации пользователя!";
-                  else $alert="Вы успешно зарегистрировались!";
-                include "block/alert.php";
-
-
-            }
+            // if (!empty($_POST["button_reg"])) {
+            //     $email=htmlspecialchars($_POST["email"]);
+            //     $login=htmlspecialchars($_POST["login"]);
+            //     $name=htmlspecialchars($_POST["name"]);
+            //     $surname=htmlspecialchars($_POST["surname"]);
+            //     $agent=htmlspecialchars($_POST["agent"]);
+            //     //$city=htmlspecialchars($_POST["city"]);
+            //     $maintelephone=htmlspecialchars($_POST["maintelephone"]);
+            //     $password_1=htmlspecialchars($_POST["password_1"]);
+            //     $password_2=htmlspecialchars($_POST["password_2"]);
+            //     $agency=htmlspecialchars($_POST["agency"]);
+            //     if (strlen($email)<3) $success=false;
+            //       elseif (strlen($password_1) <3) $success=false;
+            //       elseif ($password_1 != $password_2) $success=false;
+            //       else $success=pushUser($email,$login,md5($password_1),$name,$surname,$maintelephone,$agent);
+            //     if (!$success) $alert="Ошибка при регистрации пользователя!";
+            //       else $alert="Вы успешно зарегистрировались!";
+            //     include "block/alert.php";
+            //
+            //
+            // }
             ?>
 
             <div class="text-center" style="font-weight: 700;">
@@ -246,7 +249,7 @@
       </div>
     </div>
   </div>
-<!--//Modal-Register-->
+Modal-Register -->
 
 <!--Modal-Contact-->
   <div class="modal fade" id="Modal-Contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

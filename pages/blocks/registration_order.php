@@ -71,7 +71,7 @@
     header("Location: ".$_SERVER["HTTP_REFERER"]);
   }
   closeDB();
-  header("Location: http://asprint.lol/pages/order.php");
+  header("Location: ../order.php"); //Обратить внимание!!
 //header("Location: ".$_SERVER["HTTP_REFERER"]);
 //exit;
 // var_dump($_POST['name_order'],$_POST['options_color'],$_POST['file_face'],$_POST['file_revers'],$_POST['select_folding'],$_POST['select_folding']);

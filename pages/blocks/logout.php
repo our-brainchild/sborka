@@ -1,9 +1,6 @@
 <?php
 	session_start();
-	unset($_SESSION["email"]);
-	unset($_SESSION["login"]);
-  unset($_SESSION["id"]);
-  unset($_SESSION["password"]);
+	unset($_SESSION);
 	session_destroy();
 	header("Location: ../../");
 	exit;
