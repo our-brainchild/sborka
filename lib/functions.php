@@ -314,4 +314,16 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
        $success = $mysqli->query("UPDATE `history_pay` SET `no_show_user` = '$one' WHERE `id_pay`='$id_h_pay' AND `confirmation_pay`='$one'");
        return $success;
    }
+
+   function addMessageForDB($id_chat,$id_client, $type, $text, $data){
+     global $mysqli;
+     $result1 = $mysqli -> query("INSERT INTO `chat`(`id_chat`, `id_user`, `type_chat`) VALUES ('$id_chat','$id_client','$type')");
+     $result2 = $mysqli -> query("INSERT INTO `message`(`id_chat`, `text_message`, `data_message`) VALUES ('$id_chat', '$text', '$date')");
+     return $result1 & $result2;
+   }
+   function lengthChat(){
+     global $mysqli;
+     $result = $mysqli -> query("SELECT MAX(`id_chat`) FROM `chat` ");
+     return $result -> fetch_assoc();
+   }
 ?>
