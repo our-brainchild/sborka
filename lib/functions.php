@@ -2,7 +2,7 @@
 $mysqli = false;
 function connectDB(){
   global $mysqli;
-  $mysqli = new mysqli("localhost","root","","asprint_sborka");
+  $mysqli = new mysqli("localhost","root","root","asprint_sborka");
   $mysqli->query("SET NAMES 'utf8'");
 }
 function closeDB(){
@@ -315,15 +315,38 @@ function insertHistory_Shopping($id_client,$name_i_t,$options_color,$path_fase_i
        return $success;
    }
 
-   function addMessageForDB($id_chat,$id_client, $type, $text, $data){
+   function addMessageForDB($id_client, $id_employee, $text, $id_chat){
      global $mysqli;
-     $result1 = $mysqli -> query("INSERT INTO `chat`(`id_chat`, `id_user`, `type_chat`) VALUES ('$id_chat','$id_client','$type')");
-     $result2 = $mysqli -> query("INSERT INTO `message`(`id_chat`, `text_message`, `data_message`) VALUES ('$id_chat', '$text', '$date')");
+     if($id_chat == -1) {
+       $result1 = $mysqli -> query("INSERT INTO `chat` (`id_member_1`, `id_member_2`, `date`) VALUES ($id_client, $id_employee, DEFAULT)");
+       $id_chat_end = lengthChat();
+       $id_chat = $id_chat_end['MAX(`id_chat`)'];
+    }
+     $result2 = $mysqli -> query("INSERT INTO `message` (`id_chat`, `text`, `date`, `from_whom`) VALUES ($id_chat, '$text', DEFAULT, $id_client)");
      return $result1 & $result2;
    }
    function lengthChat(){
      global $mysqli;
      $result = $mysqli -> query("SELECT MAX(`id_chat`) FROM `chat` ");
-     return $result -> fetch_assoc();
+     return $result -> fetch_array();
+   }
+   function selectAllChatForUser($id_user){
+     global $mysqli;
+     $result = $mysqli -> query("SELECT * FROM `chat` WHERE `chat`.id_member_1='$id_user' ORDER BY `date` DESC");
+     //var_dump($result); die();
+     //var_dump(resultSetToArray($result)); die();
+     return resultSetToArray($result);
+   }
+   function selectAllMessageForIdChat($id_chat){
+     global $mysqli;
+     $result = $mysqli -> query("SELECT * FROM `message` WHERE `message`.id_chat='$id_chat'");
+     //var_dump($result); die();
+     //var_dump(resultSetToArray($result)); die();
+     return resultSetToArray($result);
+   }
+   function selectUserInfo($id_user){
+     global $mysqli;
+     $result = $mysqli -> query("SELECT * FROM `user` WHERE `user`.id_user='$id_user'");
+     return $result -> fetch_array();
    }
 ?>

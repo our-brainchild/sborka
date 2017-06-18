@@ -12,7 +12,7 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="order">
-      <div class="table-responsive">
+      <div class="table">
         <table class="table table-striped">
           <thead >
             <th class="ant-table">№</th>
@@ -54,15 +54,6 @@
                     <li id="ban"><a href=""><i class="fa fa-ban" aria-hidden="true"></i></a></li>
                   </ul>
                 </div>
-                <select class="form-control">
-                  <option><i class="fa fa-exclamation-triangle"aria-hidden="true"></i></option>
-                  <option><i class="fa fa-file-text-o"></i></option>
-                  <option><i class="fa fa-money"></i></option>
-                  <option><i class="fa fa-print"></i></option>
-                  <option><i class="fa fa-scissors"></i></option>
-                  <option><i class="fa fa-ban"></i></option>
-
-                </select>
               </td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-list"></span></td>
               <td class="ant-colomn"><span class="glyphicon glyphicon-remove"></span></td>
