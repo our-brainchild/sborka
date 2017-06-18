@@ -35,6 +35,7 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a class="btn btn-default navbar-btn" href="../pages/orders.php"><i class="fa fa-lg fa-clipboard"></i><br>Заказы</a></li>
+            <li><a class="btn btn-default navbar-btn" href="../pages/messages.php"><i class="fa fa-lg fa-envelope"></i><br>Сообщения</a></li>
             <li><a class="btn btn-default navbar-btn" href="../pages/profile.php"><i class="fa fa-lg fa-user">&nbsp;<span class="badge">id&nbsp;<?php echo $_SESSION['id'];?></span></i><br>Профиль</a></li>
             <li><a class="btn btn-default navbar-btn" href="blocks/logout.php"><i class="fa fa-lg fa-sign-out"></i><br>Выйти</a></li>
           </ul>
